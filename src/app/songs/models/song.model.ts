@@ -1,12 +1,14 @@
+import { Artist } from "../../artists/models/artist.model";
+
 export interface Song {
   id: number,
   title: string,
   poster: string,
-  genere: Genre[],
+  genre: Genre[],
   year: number,
   duration: number,
   rating: number,
-  artist: number,
+  artist: Artist,
 }
 
 export const GENRES = [

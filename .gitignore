@@ -42,5 +42,6 @@ testem.log
 Thumbs.db
 
 ##
+.cursor
 Wireframe.jpg
 Angular Test.pdf

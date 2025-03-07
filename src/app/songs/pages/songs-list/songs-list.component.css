@@ -1,0 +1,34 @@
+:host {
+  display: block;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.songs-container {
+  padding: 20px;
+  height: 100%;
+}
+
+.song-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.song-card {
+  margin-bottom: 0;
+}
+
+.genre-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.loading, .loading-more {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+

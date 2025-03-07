@@ -109,6 +109,436 @@
       "duration": 502,
       "rating": 8.39,
       "artist": 7
+    },
+    {
+      "id": 12,
+      "title": "Hey Joe",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "year": 1962,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 13,
+      "title": "Hey Joe",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "year": 1962,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 14,
+      "title": "Hey Joe",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "year": 1962,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 15,
+      "title": "Hey Joe",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "year": 1962,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 16,
+      "title": "Hey Joe",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "year": 1962,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 17,
+      "title": "Hey Joe",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "year": 1962,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 18,
+      "title": "Hey Joe",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "year": 1962,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 19,
+      "title": "Hey Joe",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "year": 1962,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 20,
+      "title": "Hey Joe",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "year": 1962,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 21,
+      "title": "Hey Joe",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "year": 1962,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 22,
+      "title": "Hey Joe",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "year": 1962,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 23,
+      "title": "Hey Joe",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "year": 1962,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 24,
+      "title": "Hey Joe",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "year": 1962,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 25,
+      "title": "Hey Joe",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "year": 1962,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 26,
+      "title": "Hey Joe",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "year": 1962,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 27,
+      "title": "Hey Joe",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "year": 1962,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 28,
+      "title": "Hey Joe",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "year": 1962,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 29,
+      "title": "Hey Joe",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "year": 1962,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 30,
+      "title": "Hey Joe",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "year": 1962,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 31,
+      "title": "Purple Rain",
+      "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1984,
+      "duration": 303,
+      "rating": 8.99,
+      "artist": 7
+    },
+    {
+      "id": 32,
+      "title": "Sweet Child O' Mine",
+      "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1987,
+      "duration": 206,
+      "rating": 6.25,
+      "artist": 7
+    },
+    {
+      "id": 33,
+      "title": "Smells Like Teen Spirit",
+      "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1991,
+      "duration": 290,
+      "rating": 6.66,
+      "artist": 7
+    },
+    {
+      "id": 34,
+      "title": "Imagine",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1971,
+      "duration": 217,
+      "rating": 8.36,
+      "artist": 7
+    },
+    {
+      "id": 35,
+      "title": "Hotel California",
+      "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1976,
+      "duration": 503,
+      "rating": 9.99,
+      "artist": 7
+    },
+    {
+      "id": 36,
+      "title": "Stairway to Heaven",
+      "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1971,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 37,
+      "title": "Killing Me Softly With His Song",
+      "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1973,
+      "duration": 399,
+      "rating": 8.07,
+      "artist": 7
+    },
+    {
+      "id": 38,
+      "title": "We Are the Champions",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1977,
+      "duration": 340,
+      "rating": 7.99,
+      "artist": 7
+    },
+    {
+      "id": 39,
+      "title": "Unchained Melody",
+      "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1965,
+      "duration": 217,
+      "rating": 8.36,
+      "artist": 7
+    },
+    {
+      "id": 40,
+      "title": "Yesterday",
+      "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1965,
+      "duration": 206,
+      "rating": 6.25,
+      "artist": 7
+    },
+    {
+      "id": 41,
+      "title": "I Will Always Love You",
+      "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1973,
+      "duration": 290,
+      "rating": 6.66,
+      "artist": 7
+    },
+    {
+      "id": 42,
+      "title": "Bohemian Rhapsody",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1975,
+      "duration": 503,
+      "rating": 9.99,
+      "artist": 7
+    },
+    {
+      "id": 43,
+      "title": "Bridge Over Troubled Water",
+      "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1970,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 44,
+      "title": "American Pie",
+      "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1971,
+      "duration": 399,
+      "rating": 8.07,
+      "artist": 7
+    },
+    {
+      "id": 45,
+      "title": "Hotel California",
+      "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1976,
+      "duration": 503,
+      "rating": 9.99,
+      "artist": 7
+    },
+    {
+      "id": 46,
+      "title": "Imagine",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1971,
+      "duration": 217,
+      "rating": 8.36,
+      "artist": 7
+    },
+    {
+      "id": 47,
+      "title": "Smells Like Teen Spirit",
+      "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1991,
+      "duration": 290,
+      "rating": 6.66,
+      "artist": 7
+    },
+    {
+      "id": 48,
+      "title": "Stairway to Heaven",
+      "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1971,
+      "duration": 502,
+      "rating": 8.39,
+      "artist": 7
+    },
+    {
+      "id": 49,
+      "title": "Sweet Child O' Mine",
+      "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1987,
+      "duration": 206,
+      "rating": 6.25,
+      "artist": 7
+    },
+    {
+      "id": 50,
+      "title": "Purple Rain",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1984,
+      "duration": 303,
+      "rating": 8.99,
+      "artist": 7
+    },
+    {
+      "id": 51,
+      "title": "Yesterday",
+      "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1965,
+      "duration": 206,
+      "rating": 6.25,
+      "artist": 7
+    },
+    {
+      "id": 52,
+      "title": "Killing Me Softly With His Song",
+      "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1973,
+      "duration": 399,
+      "rating": 8.07,
+      "artist": 7
+    },
+    {
+      "id": 53,
+      "title": "We Are the Champions",
+      "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1977,
+      "duration": 340,
+      "rating": 7.99,
+      "artist": 7
+    },
+    {
+      "id": 54,
+      "title": "Unchained Melody",
+      "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
+      "genre": ["Rock", "Pop", "Alternative"],
+      "year": 1965,
+      "duration": 217,
+      "rating": 8.36,
+      "artist": 7
     }
   ],
   "artists": [

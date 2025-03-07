@@ -1,1 +1,34 @@
-<div>song list component</div>
+<div class="songs-container"
+     infiniteScroll
+     [infiniteScrollDistance]="2"
+     [infiniteScrollThrottle]="50"
+     (scrolled)="onScroll()">
+  @if (songs().length > 0) {
+    <div class="song-grid">
+      @for (song of songs(); track $index) {
+        <mat-card class="song-card">
+          <mat-card-header>
+            <mat-card-title>{{ song.title }}</mat-card-title>
+            <mat-card-subtitle>{{ song.artist.name }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="genre-chips">
+              @for (genre of song.genre; track genre) {
+                <mat-chip selected>{{ genre }}</mat-chip>
+              }
+            </div>
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
+    @if (loading()) {
+      <div class="loading-more">
+        <mat-spinner diameter="40"></mat-spinner>
+      </div>
+    }
+  } @else {
+    <div class="loading">
+      <mat-spinner diameter="50"></mat-spinner>
+    </div>
+  }
+</div>
