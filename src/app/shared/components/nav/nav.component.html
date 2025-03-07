@@ -1,0 +1,43 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)"
+      (click)="$event.stopPropagation()">
+    <mat-toolbar>
+      Menu
+      @if (isHandset$ | async) {
+        <button mat-icon-button class="close-button" (click)="drawer.close()">
+          <mat-icon>close</mat-icon>
+        </button>
+      }
+    </mat-toolbar>
+    <mat-nav-list>
+      @for (item of menuItems; track item.path) {
+        <a mat-list-item
+           [routerLink]="item.path"
+           routerLinkActive="active"
+           (click)="closeIfHandset(drawer)">
+          <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+          {{item.label}}
+        </a>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content (click)="closeIfHandset(drawer)">
+    <mat-toolbar color="primary">
+      @if (isHandset$ | async) {
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="$event.stopPropagation(); drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      }
+      <span>{{currentTitle$ | async}}</span>
+    </mat-toolbar>
+
+    <ng-content />
+  </mat-sidenav-content>
+</mat-sidenav-container>
