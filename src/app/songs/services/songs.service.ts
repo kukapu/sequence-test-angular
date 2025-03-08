@@ -21,6 +21,10 @@ export class SongsService {
 
   constructor() { }
 
+  async getAllSongs() {
+    return this.getSongs(1, 10000)
+  }
+
   async getSongs(page = 1, pageSize = 20): Promise<Song[]> {
     try {
       const start = (page - 1) * pageSize;

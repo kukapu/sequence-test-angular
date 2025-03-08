@@ -7,6 +7,7 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
 import { SongsService } from "../../services/songs.service";
 import { Song } from "../../models/song.model";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-song-list',
@@ -24,6 +25,7 @@ import { Song } from "../../models/song.model";
 })
 export class SongListComponent {
   private songsService = inject(SongsService);
+  private router = inject(Router);
   songs = signal<Song[]>([]);
   page = signal(1);
   loading = signal(false);
@@ -39,22 +41,24 @@ export class SongListComponent {
 
     try {
       this.loading.set(true);
-
-      if (!loadMore) {
-        this.page.set(1);
-        this.songs.set([]);
-      }
-
-      const data = await this.songsService.getSongs(this.page(), this.pageSize);
+      const data = await this.songsService.getAllSongs()
       console.log(data)
-      this.songs.update(songs => [...songs, ...data]);
+      this.songs.update(songs => [...songs, ...data])
+      // if (!loadMore) {
+      //   this.page.set(1);
+      //   this.songs.set([]);
+      // }
 
-      if (data.length === this.pageSize) {
-        this.page.update(p => p + 1);
-        this.hasMore.set(true);
-      } else {
-        this.hasMore.set(false);
-      }
+      // const data = await this.songsService.getSongs(this.page(), this.pageSize);
+      // console.log(data)
+      // this.songs.update(songs => [...songs, ...data]);
+
+      // if (data.length === this.pageSize) {
+      //   this.page.update(p => p + 1);
+      //   this.hasMore.set(true);
+      // } else {
+      //   this.hasMore.set(false);
+      // }
 
     } catch (error) {
       console.error('Error loading songs:', error);
@@ -69,5 +73,9 @@ export class SongListComponent {
       console.log('Loading more songs...');
       this.loadSongs(true);
     }
+  }
+
+  toEdit(song: Song) {
+    this.router.navigate(['songs', 'edit', song.id]);
   }
 }

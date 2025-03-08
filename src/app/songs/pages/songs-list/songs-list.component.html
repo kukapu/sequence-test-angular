@@ -1,12 +1,13 @@
 <div class="songs-container"
-     infiniteScroll
-     [infiniteScrollDistance]="2"
-     [infiniteScrollThrottle]="50"
-     (scrolled)="onScroll()">
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()"
+>
   @if (songs().length > 0) {
     <div class="song-grid">
       @for (song of songs(); track $index) {
-        <mat-card class="song-card">
+        <mat-card class="song-card" (click)="toEdit(song)">
           <mat-card-header>
             <mat-card-title>{{ song.title }}</mat-card-title>
             <mat-card-subtitle>{{ song.artist.name }}</mat-card-subtitle>
