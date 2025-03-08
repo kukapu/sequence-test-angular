@@ -1,760 +1,1064 @@
 {
   "songs": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Who did you think i was",
       "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
-      "genre": ["Pop", "Rock", "Alternative"],
+      "genre": [
+        "Pop",
+        "Rock",
+        "Alternative"
+      ],
       "year": 2007,
       "duration": 424,
       "rating": 9.27,
       "artist": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Penny Lane",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Rock", "Pop", "Chill"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Chill"
+      ],
       "year": 1967,
       "duration": 303,
       "rating": 8.99,
       "artist": 2
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Hey Jude",
       "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
-      "genre": ["Pop", "Rock", "Alternative"],
+      "genre": [
+        "Pop",
+        "Rock",
+        "Alternative"
+      ],
       "year": 1974,
       "duration": 206,
       "rating": 6.25,
       "artist": 2
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "(I Can't Get No) Satisfaction",
       "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
-      "genre": ["Rock", "Pop", "Heavy"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Heavy"
+      ],
       "year": 1965,
       "duration": 290,
       "rating": 6.66,
       "artist": 4
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Where the Streets Have No Name",
       "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
-      "genre": ["Rock", "Pop", "Heavy"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Heavy"
+      ],
       "year": 1982,
       "duration": 217,
       "rating": 8.36,
       "artist": 5
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Who Says",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Pop", "Romance"],
+      "genre": [
+        "Pop",
+        "Romance"
+      ],
       "year": 1995,
       "duration": 340,
       "rating": 7.99,
       "artist": 1
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "With or without you",
       "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
-      "genre": ["Rock", "Pop", "Alternative", "Blues"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative",
+        "Blues"
+      ],
       "year": 1972,
       "duration": 305,
       "rating": 6.77,
       "artist": 5
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Start Me Up",
       "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
-      "genre": ["Rock", "Blues", "Heavy"],
+      "genre": [
+        "Rock",
+        "Blues",
+        "Heavy"
+      ],
       "year": 1973,
       "duration": 217,
       "rating": 8.36,
       "artist": 4
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "1979",
       "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
-      "genre": ["Alternative", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Alternative",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1997,
       "duration": 399,
       "rating": 8.07,
       "artist": 6
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "Voodoo Child",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Blues",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1960,
       "duration": 503,
       "rating": 9.99,
       "artist": 7
     },
     {
-      "id": 11,
+      "id": "11",
       "title": "Hey Joe",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Blues",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1962,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 12,
+      "id": "12",
       "title": "Voodoo Child",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Blues",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1962,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 13,
+      "id": "13",
       "title": "Purple Haze",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Blues",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1962,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 14,
+      "id": "14",
       "title": "Hey Now",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Blues",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1962,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 15,
+      "id": "15",
       "title": "Foxy Lady",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Blues",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1962,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 16,
+      "id": "16",
       "title": "Little Wing",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Blues",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1962,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 17,
+      "id": "17",
       "title": "Castles Made of Sand",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Blues",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1962,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 18,
+      "id": "18",
       "title": "Gypsy Eyes",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Blues",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1962,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 19,
+      "id": "19",
       "title": "Burning of the Midnight Lamp",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Blues",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1962,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 20,
+      "id": "20",
       "title": "Long Hot Summer Night",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Blues",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1962,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 21,
+      "id": "21",
       "title": "1983... (A Merman I Should Turn to Be)",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Blues",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1962,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 22,
+      "id": "22",
       "title": "Moon, Turn the Tides...Gently Gently Away",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Blues",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1962,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 23,
+      "id": "23",
       "title": "Crosstown Traffic",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Blues",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1962,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 24,
+      "id": "24",
       "title": "All Along the Watchtower",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Blues",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1962,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 25,
+      "id": "25",
       "title": "Voodoo Child (Slight Return)",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Blues",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1962,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 26,
+      "id": "26",
       "title": "Voodoo Chile",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Blues",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1962,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 27,
+      "id": "27",
       "title": "House Burning Down",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Blues",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1962,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 28,
+      "id": "28",
       "title": "Electric Ladyland",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Blues",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1962,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 29,
+      "id": "29",
       "title": "Rainy Day, Dream Away",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Blues",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1962,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 30,
+      "id": "30",
       "title": "1983... (A Merman I Should Turn to Be)",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Blues", "Psychedelic rock", "Rock"],
+      "genre": [
+        "Blues",
+        "Psychedelic rock",
+        "Rock"
+      ],
       "year": 1962,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 31,
+      "id": "31",
       "title": "Purple Rain",
       "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1984,
       "duration": 303,
       "rating": 8.99,
       "artist": 7
     },
     {
-      "id": 32,
+      "id": "32",
       "title": "Sweet Child O' Mine",
       "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1987,
       "duration": 206,
       "rating": 6.25,
       "artist": 7
     },
     {
-      "id": 33,
+      "id": "33",
       "title": "Smells Like Teen Spirit",
       "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1991,
       "duration": 290,
       "rating": 6.66,
       "artist": 7
     },
     {
-      "id": 34,
+      "id": "34",
       "title": "Imagine",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1971,
       "duration": 217,
       "rating": 8.36,
       "artist": 7
     },
     {
-      "id": 35,
+      "id": "35",
       "title": "Hotel California",
       "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1976,
       "duration": 503,
       "rating": 9.99,
       "artist": 7
     },
     {
-      "id": 36,
+      "id": "36",
       "title": "Stairway to Heaven",
       "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1971,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 37,
+      "id": "37",
       "title": "Killing Me Softly With His Song",
       "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1973,
       "duration": 399,
       "rating": 8.07,
       "artist": 7
     },
     {
-      "id": 38,
+      "id": "38",
       "title": "We Are the Champions",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1977,
       "duration": 340,
       "rating": 7.99,
       "artist": 7
     },
     {
-      "id": 39,
+      "id": "39",
       "title": "Unchained Melody",
       "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1965,
       "duration": 217,
       "rating": 8.36,
       "artist": 7
     },
     {
-      "id": 40,
+      "id": "40",
       "title": "Yesterday",
       "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1965,
       "duration": 206,
       "rating": 6.25,
       "artist": 7
     },
     {
-      "id": 41,
+      "id": "41",
       "title": "I Will Always Love You",
       "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1973,
       "duration": 290,
       "rating": 6.66,
       "artist": 7
     },
     {
-      "id": 42,
+      "id": "42",
       "title": "Bohemian Rhapsody",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1975,
       "duration": 503,
       "rating": 9.99,
       "artist": 7
     },
     {
-      "id": 43,
+      "id": "43",
       "title": "Bridge Over Troubled Water",
       "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1970,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 44,
+      "id": "44",
       "title": "American Pie",
       "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1971,
       "duration": 399,
       "rating": 8.07,
       "artist": 7
     },
     {
-      "id": 45,
+      "id": "45",
       "title": "Hotel California",
       "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1976,
       "duration": 503,
       "rating": 9.99,
       "artist": 7
     },
     {
-      "id": 46,
+      "id": "46",
       "title": "Imagine",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1971,
       "duration": 217,
       "rating": 8.36,
       "artist": 7
     },
     {
-      "id": 47,
+      "id": "47",
       "title": "Smells Like Teen Spirit",
       "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1991,
       "duration": 290,
       "rating": 6.66,
       "artist": 7
     },
     {
-      "id": 48,
+      "id": "48",
       "title": "Stairway to Heaven",
       "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1971,
       "duration": 502,
       "rating": 8.39,
       "artist": 7
     },
     {
-      "id": 49,
+      "id": "49",
       "title": "Sweet Child O' Mine",
       "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1987,
       "duration": 206,
       "rating": 6.25,
       "artist": 7
     },
     {
-      "id": 50,
+      "id": "50",
       "title": "Purple Rain",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1984,
       "duration": 303,
       "rating": 8.99,
       "artist": 7
     },
     {
-      "id": 51,
+      "id": "51",
       "title": "Yesterday",
       "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1965,
       "duration": 206,
       "rating": 6.25,
       "artist": 7
     },
     {
-      "id": 52,
+      "id": "52",
       "title": "Killing Me Softly With His Song",
       "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1973,
       "duration": 399,
       "rating": 8.07,
       "artist": 7
     },
     {
-      "id": 53,
+      "id": "53",
       "title": "We Are the Champions",
       "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1977,
       "duration": 340,
       "rating": 7.99,
       "artist": 7
     },
     {
-      "id": 54,
+      "id": "54",
       "title": "Unchained Melody",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1965,
       "duration": 217,
       "rating": 8.36,
       "artist": 7
     },
     {
-      "id": 55,
+      "id": "55",
       "title": "I Can't Get No (I Need No) Satisfaction",
       "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1965,
       "duration": 290,
       "rating": 6.66,
       "artist": 7
     },
     {
-      "id": 56,
+      "id": "56",
       "title": "Space Oddity",
       "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1969,
       "duration": 217,
       "rating": 8.36,
       "artist": 7
     },
     {
-      "id": 57,
+      "id": "57",
       "title": "Bohemian Rhapsody",
       "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1975,
       "duration": 503,
       "rating": 9.99,
       "artist": 7
     },
     {
-      "id": 58,
+      "id": "58",
       "title": "Hotel California",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1976,
       "duration": 503,
       "rating": 9.99,
       "artist": 7
     },
     {
-      "id": 59,
+      "id": "59",
       "title": "Imagine",
       "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1971,
       "duration": 217,
       "rating": 8.36,
       "artist": 7
     },
     {
-      "id": 60,
+      "id": "60",
       "title": "Smells Like Teen Spirit",
       "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1991,
       "duration": 290,
       "rating": 6.66,
       "artist": 7
     },
     {
-      "id": 61,
+      "id": "61",
       "title": "Hey Jude",
       "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1974,
       "duration": 206,
       "rating": 6.25,
       "artist": 7
     },
     {
-      "id": 62,
+      "id": "62",
       "title": "Purple Rain",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1984,
       "duration": 303,
       "rating": 8.99,
       "artist": 7
     },
     {
-      "id": 63,
+      "id": "63",
       "title": "Yesterday",
       "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1965,
       "duration": 206,
       "rating": 6.25,
       "artist": 7
     },
     {
-      "id": 64,
+      "id": "64",
       "title": "Killing Me Softly With His Song",
       "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1973,
       "duration": 399,
       "rating": 8.07,
       "artist": 7
     },
     {
-      "id": 65,
+      "id": "65",
       "title": "We Are the Champions",
       "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1977,
       "duration": 340,
       "rating": 7.99,
       "artist": 7
     },
     {
-      "id": 66,
+      "id": "66",
       "title": "Unchained Melody",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1965,
       "duration": 217,
       "rating": 8.36,
       "artist": 7
     },
     {
-      "id": 67,
+      "id": "67",
       "title": "I Can't Get No (I Need No) Satisfaction",
       "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1965,
       "duration": 290,
       "rating": 6.66,
       "artist": 7
     },
     {
-      "id": 68,
+      "id": "68",
       "title": "Space Oddity",
       "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1969,
       "duration": 217,
       "rating": 8.36,
       "artist": 7
     },
     {
-      "id": 69,
+      "id": "69",
       "title": "Bohemian Rhapsody",
       "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1975,
       "duration": 503,
       "rating": 9.99,
       "artist": 7
     },
     {
-      "id": 70,
+      "id": "70",
       "title": "Hotel California",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1976,
       "duration": 503,
       "rating": 9.99,
       "artist": 7
     },
     {
-      "id": 71,
+      "id": "71",
       "title": "Imagine",
       "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1971,
       "duration": 217,
       "rating": 8.36,
       "artist": 7
     },
     {
-      "id": 72,
+      "id": "72",
       "title": "Smells Like Teen Spirit",
       "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1991,
       "duration": 290,
       "rating": 6.66,
       "artist": 7
     },
     {
-      "id": 73,
+      "id": "73",
       "title": "Hey Jude",
       "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1974,
       "duration": 206,
       "rating": 6.25,
       "artist": 7
     },
     {
-      "id": 74,
+      "id": "74",
       "title": "Purple Rain",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1984,
       "duration": 303,
       "rating": 8.99,
       "artist": 7
     },
     {
-      "id": 75,
+      "id": "75",
       "title": "Yesterday",
       "poster": "http://dummyimage.com/400x600.png/ff4444/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1965,
       "duration": 206,
       "rating": 6.25,
       "artist": 7
     },
     {
-      "id": 76,
+      "id": "76",
       "title": "Killing Me Softly With His Song",
       "poster": "http://dummyimage.com/400x600.png/5fa2dd/ffffff",
-      "genre": ["Rock", "Pop", "Alternative"],
+      "genre": [
+        "Rock",
+        "Pop",
+        "Alternative"
+      ],
       "year": 1973,
       "duration": 399,
       "rating": 8.07,
@@ -763,108 +1067,144 @@
   ],
   "artists": [
     {
-      "id": 1,
+      "id": "1",
       "name": "John Mayer",
       "bornCity": "Conecticut",
       "birthdate": "16/10/1977",
       "img": "http://dummyimage.com/600x400.png/dddddd/000000",
       "rating": 9.03,
-      "songs": [1, 6]
+      "songs": [
+        1,
+        6
+      ]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "The Beatles",
       "bornCity": "Liverpool",
       "birthdate": "19/04/1975",
       "img": "http://dummyimage.com/600x400.png/5fa2dd/000000",
       "rating": 2.43,
-      "songs": [2, 3]
+      "songs": [
+        2,
+        3
+      ]
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "John Lennon",
       "bornCity": "Liverpool",
       "birthdate": "10/04/1986",
       "img": null,
       "rating": 7.92,
-      "songs": [2, 3, 8]
+      "songs": [
+        2,
+        3,
+        8
+      ]
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "The Rolling Stones",
       "bornCity": "London",
       "birthdate": "04/08/1990",
       "img": "http://dummyimage.com/600x400.png/4fa25d/000000",
       "rating": 4.37,
-      "songs": [4, 8]
+      "songs": [
+        4,
+        8
+      ]
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "U2",
       "bornCity": "London",
       "birthdate": "30/12/1990",
       "img": "https://dummyimage.com/600x400.png/2f125d/ffffff",
       "rating": 3.92,
-      "songs": [5, 7]
+      "songs": [
+        5,
+        7
+      ]
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "The Smashing Pumpkins",
       "bornCity": "Pitomača",
       "birthdate": "02/01/1968",
       "img": "https://dummyimage.com/600x400.png/bf125d/ffffff",
       "rating": 8.79,
-      "songs": [9]
+      "songs": [
+        9
+      ]
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Jimi Hendrix",
       "bornCity": "London",
       "birthdate": "28/10/1953",
       "img": "https://dummyimage.com/600x400.png/1f12ff/ffffff",
-      "rating": 10.0,
-      "songs": [11, 12]
+      "rating": 10,
+      "songs": [
+        11,
+        12
+      ]
     }
   ],
   "companies": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Apple Corps Ltd",
       "country": "Colombia",
       "createYear": 1968,
       "employees": 2000,
       "rating": 8.32,
-      "songs": [2, 3]
+      "songs": [
+        1,
+        2,
+        3
+      ]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Vinilo Some Girls",
       "country": "England",
       "createYear": 2005,
       "employees": 611,
       "rating": 8.19,
-      "songs": [4, 8]
+      "songs": [
+        1,
+        4,
+        8
+      ]
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Universal Music Group (UMG)",
       "country": "Greece",
       "createYear": 1994,
       "employees": 511,
       "rating": 8.09,
-      "songs": [5, 6, 7]
+      "songs": [
+        5,
+        6,
+        7
+      ]
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Warner Music Group (WMG)",
       "country": "Philippines",
       "createYear": 2005,
       "employees": 42,
       "rating": 9.26,
-      "songs": [8, 9]
+      "songs": [
+        8,
+        9
+      ]
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Sony Music Entertainment (SME)",
       "country": "China",
       "createYear": 1999,

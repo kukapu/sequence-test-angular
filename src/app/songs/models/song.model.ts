@@ -9,6 +9,8 @@ export interface Song {
   duration: number,
   rating: number,
   artist: Artist,
+  companies?: string[],
+  country?: string
 }
 
 export const GENRES = [

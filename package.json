@@ -23,6 +23,7 @@
     "@ngneat/transloco": "^6.0.4",
     "json-server": "^1.0.0-beta.3",
     "ngx-infinite-scroll": "^19.0.0",
+    "ngx-mat-select-search": "^8.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"

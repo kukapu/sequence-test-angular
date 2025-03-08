@@ -12,12 +12,23 @@ interface SongDB {
   artist: number,
 }
 
+interface Company {
+  id: string;
+  name: string;
+  country: string;
+  createYear: number;
+  employees: number;
+  rating: number;
+  songs: number[];
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class SongsService {
   private readonly API_URL = 'http://localhost:3000/songs';
   private readonly API_URL_ARTISTS = 'http://localhost:3000/artists';
+  private readonly API_URL_COMPANIES = 'http://localhost:3000/companies';
 
   constructor() { }
 
@@ -61,7 +72,15 @@ export class SongsService {
       }
 
       const song = await response.json() as Song;
-      return song;
+      const artist = await this._getArtistFromSong(song.artist as any);
+      const companies = await this._getCompaniesForSong(id);
+
+      return {
+        ...song,
+        artist,
+        country: companies[0]?.country,
+        companies: companies?.map(c => c.name)
+      };
 
     } catch (error) {
       console.error(`Error fetching song with id ${id}:`, error);
@@ -81,6 +100,43 @@ export class SongsService {
 
     } catch (error) {
       console.error(`Error fetching song with id ${artistId}:`, error);
+      throw error;
+    }
+  }
+
+  private async _getCompaniesForSong(songId: number): Promise<Company[]> {
+    try {
+      const response = await fetch(`${this.API_URL_COMPANIES}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const companies = await response.json() as Company[];
+      return companies.filter(company => company.songs.includes(Number(songId)));
+
+    } catch (error) {
+      console.error(`Error fetching companies for song ${songId}:`, error);
+      return [];
+    }
+  }
+
+  async createSong(song: Song){
+    try {
+      const response = await fetch(`${this.API_URL}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(song)
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      return response.json();
+    } catch (error) {
+      console.error(`Error creating song`, error);
       throw error;
     }
   }

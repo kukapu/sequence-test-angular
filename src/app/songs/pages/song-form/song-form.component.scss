@@ -1,0 +1,142 @@
+.song-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+::ng-deep {
+  .mat-mdc-form-field {
+    .mdc-text-field--outlined {
+      --mdc-outlined-text-field-container-shape: 8px;
+      background-color: white;
+    }
+
+    .mat-mdc-form-field-flex {
+      background-color: white;
+    }
+
+    .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading {
+      border-radius: 8px 0 0 8px;
+    }
+
+    .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing {
+      border-radius: 0 8px 8px 0;
+    }
+
+    .mat-mdc-select-panel {
+      background: white;
+    }
+
+    .mat-mdc-form-field-error-wrapper {
+      padding: 0;
+      position: static;
+    }
+
+    .mat-mdc-form-field-error {
+      font-size: 12px;
+      margin-top: 4px;
+      color: var(--mdc-theme-error, #f44336);
+    }
+
+    .mat-mdc-form-field-required-marker {
+      color: var(--mdc-theme-error, #f44336);
+    }
+  }
+
+  .mdc-text-field--outlined {
+    padding: 0 12px;
+  }
+
+  .mat-mdc-select-panel, .mat-datepicker-content {
+    background: white !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .mat-calendar {
+    background-color: white;
+  }
+
+  mat-error {
+    color: var(--mdc-theme-error, #f44336) !important;
+  }
+
+  .mat-mdc-autocomplete-panel {
+    background: white !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+
+    .mdc-list-item {
+      height: 48px !important;
+      padding: 0 16px;
+    }
+
+    .mat-mdc-option {
+      &.mdc-list-item--selected {
+        background-color: rgba(0, 0, 0, 0.04) !important;
+      }
+
+      &.mat-mdc-option-active {
+        background-color: rgba(63, 81, 181, 0.1) !important;
+      }
+
+      &:hover:not(.mat-mdc-option-active) {
+        background-color: rgba(0, 0, 0, 0.04) !important;
+      }
+    }
+  }
+}
+
+.companies-section {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+
+  .company-input {
+    flex: 1;
+  }
+
+  button {
+    margin-top: 8px;
+  }
+}
+
+.chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+
+  .mat-mdc-chip {
+    background-color: #f5f5f5;
+    border-radius: 16px;
+  }
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.error-message {
+  color: var(--mdc-theme-error, #f44336);
+  font-size: 12px;
+  margin-top: -12px;
+  margin-bottom: 12px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+
+  button {
+    min-width: 120px;
+    border-radius: 20px;
+  }
+}
