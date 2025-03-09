@@ -46,6 +46,7 @@ export class SongListComponent {
       const data = await this.songsService.getAllSongs()
       console.log(data)
       this.songs.update(songs => [...songs, ...data])
+
       // if (!loadMore) {
       //   this.page.set(1);
       //   this.songs.set([]);

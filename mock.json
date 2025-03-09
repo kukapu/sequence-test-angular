@@ -1,20 +1,6 @@
 {
   "songs": [
     {
-      "id": "1",
-      "title": "Who did you think i was1",
-      "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
-      "genre": [
-        "Pop",
-        "Rock",
-        "Heavy"
-      ],
-      "year": 2007,
-      "duration": 424,
-      "rating": 9.27,
-      "artist": 1
-    },
-    {
       "id": "2",
       "title": "Penny Lane",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",

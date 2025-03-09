@@ -173,6 +173,23 @@ export class SongsService {
     }
   }
 
+  async deleteSong(id: number) {
+    try {
+      const response = await fetch(`${this.API_URL}/${id}`, {
+        method: 'DELETE'
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      return true;
+    } catch (error) {
+      console.error(`Error deleting song with id ${id}:`, error);
+      throw error;
+    }
+  }
+
   private async _parseModelToEntity(song: Song): Promise<SongDB> {
     const artistId = await this._getArtistIdByName(song.artist as unknown as string);
 
