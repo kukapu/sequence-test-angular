@@ -1,5 +1,5 @@
 @if (form) {
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="song-form">
+  <form [formGroup]="form" class="song-form">
     <mat-form-field appearance="outline">
       <mat-label>Título</mat-label>
       <input matInput formControlName="title" placeholder="Introduce el título">
@@ -125,11 +125,12 @@
     }
 
     <div class="form-actions">
-      <button type="submit"
-              mat-raised-button
-              color="primary"
-              [disabled]="!form.valid"
-              (click)="onSubmit()">
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="!form.valid"
+        (click)="onSubmit()"
+      >
         Guardar
       </button>
     </div>

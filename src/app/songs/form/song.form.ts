@@ -6,7 +6,6 @@ export class SongForm {
   private fb = inject(FormBuilder);
   private readonly countries = ['España', 'Estados Unidos', 'Reino Unido', 'Francia', 'Alemania', 'Italia', 'Japón'];
 
-  // Controles independientes
   yearNumberControl = new FormControl<number | null>(null);
   yearDateControl = new FormControl<Date | null>(null);
   countryFilterCtrl = new FormControl<string>('');
@@ -17,9 +16,11 @@ export class SongForm {
     id: [''],
     title: ['', [Validators.required]],
     artist: ['', [Validators.required]],
+    poster: [''],
     genre: [[] as string[]],
     companies: this.fb.array([]),
     country: [''],
+    duration: [0],
     year: [''],
     rating: ['', [
       Validators.required,
@@ -30,7 +31,6 @@ export class SongForm {
   });
 
   constructor() {
-    // Suscribirse a cambios en el filtro de países
     this.countryFilterCtrl.valueChanges.subscribe(filterValue => {
       if (filterValue !== null) {
         const filter = filterValue.toLowerCase();
@@ -42,7 +42,6 @@ export class SongForm {
       }
     });
 
-    // Sincronizar el valor del país entre el control de filtro y el formulario
     this.form.get('country')?.valueChanges.subscribe(value => {
       if (value !== this.countryFilterCtrl.value) {
         this.countryFilterCtrl.setValue(value || '', { emitEvent: false });
@@ -60,23 +59,22 @@ export class SongForm {
 
   setData(song: Song) {
     console.log('song desde el form', song)
-    // Actualizar el formulario principal
     this.form.patchValue({
       id: song.id.toString(),
       title: song.title,
       artist: song.artist.name,
+      poster: song.poster,
       genre: song.genre,
+      duration: song.duration,
       country: song.country,
       year: song.year?.toString(),
       rating: song.rating?.toString()
     }, { emitEvent: true });
 
-    // Actualizar los controles específicos
     if (typeof song.year === 'number') {
       this.yearNumberControl.setValue(song.year, { emitEvent: false });
     }
 
-    // Actualizar las compañías
     if (song.companies && song.companies.length > 0) {
       while (this.companiesArray.length) {
         this.companiesArray.removeAt(0);
@@ -133,7 +131,8 @@ export class SongForm {
       ...formValue,
       id: formValue.id ? Number(formValue.id) : undefined,
       year: formValue.year ? Number(formValue.year) : undefined,
-      rating: formValue.rating ? Number(formValue.rating) : undefined
+      rating: formValue.rating ? Number(formValue.rating) : undefined,
+      duration: formValue.duration ? Number(formValue.duration) : undefined
     } as Partial<Song>;
   }
 }

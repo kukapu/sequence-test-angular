@@ -4,6 +4,7 @@ import { MatCardModule } from "@angular/material/card";
 import { MatChipsModule } from "@angular/material/chips";
 import { MatIconModule } from "@angular/material/icon";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MatButtonModule } from "@angular/material/button";
 import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
 import { SongsService } from "../../services/songs.service";
 import { Song } from "../../models/song.model";
@@ -18,6 +19,7 @@ import { Router } from "@angular/router";
     MatChipsModule,
     MatIconModule,
     MatProgressSpinnerModule,
+    MatButtonModule,
     InfiniteScrollDirective
   ],
   templateUrl: 'songs-list.component.html',
@@ -77,5 +79,9 @@ export class SongListComponent {
 
   toEdit(song: Song) {
     this.router.navigate(['songs', 'edit', song.id]);
+  }
+
+  toNew() {
+    this.router.navigate(['songs', 'new']);
   }
 }

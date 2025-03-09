@@ -13,7 +13,7 @@ import { MatAutocompleteModule, MatAutocompleteSelectedEvent } from '@angular/ma
 import { GENRES, Song } from "../../models/song.model";
 import { SongForm } from "../../form/song.form";
 import { SongsService } from "../../services/songs.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-song-form',
@@ -37,6 +37,7 @@ import { ActivatedRoute } from "@angular/router";
 export class SongFormComponent implements OnInit {
   private songService = inject(SongsService);
   private activeRouter = inject(ActivatedRoute);
+  private router = inject(Router)
 
   genres = GENRES;
   maxDate = new Date();
@@ -120,11 +121,18 @@ export class SongFormComponent implements OnInit {
     this.songForm.onYearSelected(date.getFullYear());
   }
 
+  back(){
+    this.router.navigate(['songs']);
+  }
+
   async onSubmit() {
-    console.log(this.songForm.getValue())
     if (!this.form.valid) return;
 
     const songData = this.songForm.getValue();
-    // await this.songService.createSong(songData as Song);
+    songData.id
+      ? await this.songService.updateSong(songData as Song)
+      : await this.songService.createSong(songData as Song)
+
+    this.back()
   }
 }

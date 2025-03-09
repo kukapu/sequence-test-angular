@@ -2,12 +2,12 @@
   "songs": [
     {
       "id": "1",
-      "title": "Who did you think i was",
+      "title": "Who did you think i was1",
       "poster": "http://dummyimage.com/400x600.png/cc0000/ffffff",
       "genre": [
         "Pop",
         "Rock",
-        "Alternative"
+        "Heavy"
       ],
       "year": 2007,
       "duration": 424,
@@ -1063,6 +1063,41 @@
       "duration": 399,
       "rating": 8.07,
       "artist": 7
+    },
+    {
+      "id": "c4bf",
+      "title": "GTO",
+      "poster": "",
+      "genre": [
+        "Pop",
+        "Rock"
+      ],
+      "year": 2016,
+      "rating": 5,
+      "artist": 5
+    },
+    {
+      "id": "2335",
+      "title": "GTO",
+      "poster": "",
+      "genre": [
+        "Pop",
+        "Rock"
+      ],
+      "year": 2016,
+      "rating": 5,
+      "artist": 5
+    },
+    {
+      "id": "00bd",
+      "title": "GTO3",
+      "poster": "",
+      "genre": [
+        "Chill",
+        "Heavy"
+      ],
+      "rating": 2,
+      "artist": 5
     }
   ],
   "artists": [

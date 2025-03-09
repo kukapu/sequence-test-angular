@@ -6,7 +6,7 @@
 
 .songs-container {
   padding: 20px;
-  height: 100%;
+  min-height: 100vh;
 }
 
 .song-grid {
@@ -16,19 +16,31 @@
 }
 
 .song-card {
-  margin-bottom: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.song-card:hover {
+  transform: translateY(-5px);
 }
 
 .genre-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 10px;
+  margin-top: 16px;
 }
 
 .loading, .loading-more {
   display: flex;
   justify-content: center;
   padding: 20px;
+}
+
+.fab-button {
+  position: fixed;
+  bottom: 2rem;
+  right: calc((100% - 1400px) / 2 + 2rem);
+  z-index: 1000;
 }
 
