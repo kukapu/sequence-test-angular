@@ -58,7 +58,6 @@ export class SongForm {
   }
 
   setData(song: Song) {
-    console.log('song desde el form', song)
     this.form.patchValue({
       id: song.id.toString(),
       title: song.title,

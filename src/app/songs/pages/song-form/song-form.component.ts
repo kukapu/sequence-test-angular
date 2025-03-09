@@ -11,6 +11,8 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { MatAutocompleteModule, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { TranslateModule } from '@ngx-translate/core';
 import { GENRES, Song } from "../../models/song.model";
 import { SongForm } from "../../form/song.form";
 import { SongsService } from "../../services/songs.service";
@@ -34,7 +36,9 @@ import { DeleteDialogComponent } from "../../components/delete-dialog/delete-dia
     MatIconModule,
     MatButtonModule,
     MatAutocompleteModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    TranslateModule
   ]
 })
 export class SongFormComponent implements OnInit {
@@ -48,7 +52,8 @@ export class SongFormComponent implements OnInit {
   songForm = new SongForm();
   filteredCountries = this.songForm.filteredCountries;
   isEditing = signal(false);
-  isExistingSong = signal(false);
+  saving = signal(false);
+  songId: string | null = null;
 
   get form() {
     return this.songForm.form;
@@ -70,54 +75,35 @@ export class SongFormComponent implements OnInit {
     return this.songForm.companies;
   }
 
-  get companiesArray() {
-    return this.songForm.companiesArray;
-  }
-
   constructor() { }
 
   ngOnInit(): void {
-    this.loadInfo();
-
-    this.yearNumberControl.valueChanges.subscribe(year => {
-      if (year !== null && this.isEditing()) {
-        this.form.patchValue({ year: year.toString() });
-      }
-    });
+    const id = this.activeRouter.snapshot.paramMap.get('id');
+    if (id) {
+      this.songId = id;
+      this.loadSong(id);
+    } else {
+      this.isEditing.set(true);
+    }
   }
 
-  async loadInfo() {
-    this.activeRouter.params.subscribe(async params => {
-      if (params['id']) {
-        const data = await this.songService.getSongById(params['id']);
-        this.songForm.setData(data);
-        this.isExistingSong.set(true);
-        this.isEditing.set(false);
-        this.form.disable();
-        this.yearNumberControl.disable();
-        this.yearDateControl.disable();
-        this.countryFilterCtrl.disable();
-      } else {
-        this.isExistingSong.set(false);
-        this.isEditing.set(true);
-        this.form.enable();
-        this.yearNumberControl.enable();
-        this.yearDateControl.enable();
-        this.countryFilterCtrl.enable();
-      }
-    });
+  async loadSong(id: string) {
+    try {
+      const song = await this.songService.getSongById(Number(id));
+      this.songForm.setData(song);
+      this.isEditing.set(false);
+    } catch (error) {
+      console.error('Error loading song:', error);
+    }
   }
 
   displayFn = (country: string) => this.songForm.displayFn(country);
 
   onCountrySelected(event: MatAutocompleteSelectedEvent) {
-    if (!this.isEditing()) return;
     this.songForm.onCountrySelected(event.option.value);
   }
 
   clearCountryOnBackspace(event: KeyboardEvent) {
-    if (!this.isEditing()) return;
-
     const value = this.countryFilterCtrl.value;
     if (event.key === 'Backspace' && this.form.get('country')?.value && (!value || value === '')) {
       event.preventDefault();
@@ -126,9 +112,8 @@ export class SongFormComponent implements OnInit {
   }
 
   addCompany(company: string, input: HTMLInputElement) {
-    if (this.songForm.addCompany(company)) {
-      input.value = '';
-    }
+    this.songForm.addCompany(company);
+    input.value = '';
   }
 
   removeCompany(index: number) {
@@ -139,47 +124,59 @@ export class SongFormComponent implements OnInit {
     this.songForm.removeLastGenre();
   }
 
-  onYearSelected(date: Date) {
+  chosenYearHandler(date: Date, datepicker: any) {
     this.songForm.onYearSelected(date.getFullYear());
+    datepicker.close();
   }
 
-  back(){
-    this.router.navigate(['songs']);
-  }
-
-  enableEdit() {
+  edit() {
     this.isEditing.set(true);
-    this.form.enable();
-    this.yearNumberControl.enable();
-    this.yearDateControl.enable();
-    this.countryFilterCtrl.enable();
   }
 
-  async deleteSong() {
-    if (!this.form.value.id) return;
+  cancel() {
+    this.isEditing.set(false);
+  }
 
-    const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      width: '400px',
-      enterAnimationDuration: '200ms',
-      exitAnimationDuration: '200ms'
-    });
+  async save() {
+    if (this.form.valid) {
+      this.saving.set(true);
+      try {
+        const songData = this.songForm.getValue() as Song;
+        if (this.songId) {
+          await this.songService.updateSong({
+            ...songData,
+            id: Number(this.songId)
+          });
+        } else {
+          await this.songService.createSong(songData);
+        }
+        this.router.navigate(['/songs']);
+      } catch (error) {
+        console.error('Error saving song:', error);
+      } finally {
+        this.saving.set(false);
+      }
+    }
+  }
 
+  async delete() {
+    const dialogRef = this.dialog.open(DeleteDialogComponent);
     dialogRef.afterClosed().subscribe(async result => {
-      if (result) {
-        await this.songService.deleteSong(Number(this.form.value.id));
-        this.back();
+      if (result && this.songId) {
+        try {
+          await this.songService.deleteSong(Number(this.songId));
+          this.router.navigate(['/songs']);
+        } catch (error) {
+          console.error('Error deleting song:', error);
+        }
       }
     });
   }
 
-  async onSubmit() {
-    if (!this.form.valid) return;
-
-    const songData = this.songForm.getValue();
-    songData.id
-      ? await this.songService.updateSong(songData as Song)
-      : await this.songService.createSong(songData as Song)
-
-    this.back()
+  onSelectOpened(opened: boolean): boolean {
+    if (!this.isEditing()) {
+      return false;
+    }
+    return opened;
   }
 }

@@ -1,0 +1,11 @@
+<mat-toolbar>
+  <button mat-icon-button (click)="toggleMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  @if (isFormRoute()) {
+    <button mat-icon-button (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  }
+  <span>{{ title() | translate }}</span>
+</mat-toolbar>

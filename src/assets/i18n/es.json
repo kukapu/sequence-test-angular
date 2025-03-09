@@ -1,0 +1,63 @@
+{
+  "MENU": {
+    "MENU": "Menú",
+    "CLOSE": "Cerrar"
+  },
+  "NAVIGATION": {
+    "SONGS": "Canciones",
+    "ARTISTS": "Artistas",
+    "COMPANIES": "Compañías"
+  },
+  "COMMON": {
+    "LOADING": "Cargando...",
+    "ERROR": "Error",
+    "SUCCESS": "Éxito",
+    "ADD": "Añadir",
+    "SAVE": "Guardar",
+    "CANCEL": "Cancelar",
+    "DELETE": "Eliminar",
+    "SEARCH": "Buscar",
+    "REQUIRED": "Este campo es obligatorio",
+    "EDIT": "Editar"
+  },
+  "SONGS": {
+    "TITLE": "Título",
+    "TITLE_PLACEHOLDER": "Introduce el título",
+    "TITLE_REQUIRED": "El título es obligatorio",
+    "ARTIST": "Artista",
+    "ARTIST_PLACEHOLDER": "Introduce el artista",
+    "ARTIST_REQUIRED": "El artista es obligatorio",
+    "GENRES": "Géneros",
+    "GENRES_REQUIRED": "Selecciona al menos un género",
+    "COMPANY": "Compañía",
+    "COMPANY_PLACEHOLDER": "Añade una compañía",
+    "COUNTRY": "País",
+    "COUNTRY_PLACEHOLDER": "Buscar país",
+    "YEAR": "Año",
+    "YEAR_PLACEHOLDER": "Selecciona un año",
+    "NEW_SONG": "Nueva canción",
+    "EDIT_SONG": "Editar canción",
+    "RATING": "Puntuación",
+    "RATING_PLACEHOLDER": "0-10",
+    "RATING_REQUIRED": "La puntuación es obligatoria",
+    "RATING_RANGE": "La puntuación debe estar entre 0 y 10",
+    "RATING_DECIMALS": "Máximo 2 decimales permitidos",
+    "DELETE_TITLE": "Confirmar eliminación",
+    "DELETE_MESSAGE": "¿Estás seguro de que quieres eliminar esta canción?",
+    "DELETE_WARNING": "Esta acción no se puede deshacer"
+  },
+  "ARTISTS": {
+    "NAME": "Nombre",
+    "NAME_PLACEHOLDER": "Introduce el nombre",
+    "NAME_REQUIRED": "El nombre es obligatorio",
+    "NEW_ARTIST": "Nuevo artista",
+    "EDIT_ARTIST": "Editar artista"
+  },
+  "COMPANIES": {
+    "NAME": "Nombre",
+    "NAME_PLACEHOLDER": "Introduce el nombre",
+    "NAME_REQUIRED": "El nombre es obligatorio",
+    "NEW_COMPANY": "Nueva compañía",
+    "EDIT_COMPANY": "Editar compañía"
+  }
+}

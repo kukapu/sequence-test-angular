@@ -10,6 +10,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-nav',
@@ -24,13 +25,15 @@ import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    TranslateModule
   ]
 })
 export class NavComponent {
   @Output() scrolled = new EventEmitter<void>();
 
   private router = inject(Router);
-  breakpointObserver = inject(BreakpointObserver)
+  private translate = inject(TranslateService);
+  breakpointObserver = inject(BreakpointObserver);
 
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe([Breakpoints.Handset])
@@ -39,16 +42,17 @@ export class NavComponent {
     );
 
   menuItems = [
-    { path: '/songs', label: 'Canciones', icon: 'music_note' },
-    { path: '/artists', label: 'Artistas', icon: 'person' },
-    { path: '/companies', label: 'Compañías', icon: 'business' }
+    { path: '/songs', label: 'NAVIGATION.SONGS', icon: 'music_note' },
+    { path: '/artists', label: 'NAVIGATION.ARTISTS', icon: 'person' },
+    { path: '/companies', label: 'NAVIGATION.COMPANIES', icon: 'business' }
   ];
 
   currentTitle$ = this.router.events.pipe(
     filter(event => event instanceof NavigationEnd),
     map(() => {
       const currentRoute = this.router.url;
-      return this.menuItems.find(item => item.path === currentRoute)?.label ?? 'Canciones';
+      const menuItem = this.menuItems.find(item => item.path === currentRoute);
+      return menuItem ? this.translate.instant(menuItem.label) : this.translate.instant('NAVIGATION.SONGS');
     })
   );
 

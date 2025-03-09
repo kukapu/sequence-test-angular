@@ -5,9 +5,14 @@
       "title": "Penny Lane",
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
       "genre": [
-        "Rock",
         "Pop",
-        "Chill"
+        "Rock",
+        "Alternative",
+        "Chill",
+        "Heavy",
+        "Romance",
+        "Blues",
+        "Psychedelic rock"
       ],
       "year": 1967,
       "duration": 303,

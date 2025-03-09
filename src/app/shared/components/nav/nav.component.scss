@@ -1,3 +1,7 @@
+:root {
+  --toolbar-height: 64px;
+}
+
 .sidenav-container {
   position: absolute;
   top: 0;
@@ -27,9 +31,14 @@
 
 .mat-toolbar.mat-primary {
   position: sticky;
+  height: var(--toolbar-height);
   top: 0;
   z-index: 1;
   background-color: var(--mdc-theme-primary, #ffffff);
+}
+
+.spacer {
+  flex: 1 1 auto;
 }
 
 @media (max-width: 599px) {
@@ -54,6 +63,6 @@ mat-sidenav-content {
 .content-wrapper {
   flex: 1;
   overflow-y: auto;
-  height: calc(100vh - 64px);
+  height: calc(100vh - var(--toolbar-height));
 }
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavComponent } from './shared/components/nav/nav.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +11,8 @@ import { NavComponent } from './shared/components/nav/nav.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-
+  constructor(private translate: TranslateService) {
+    translate.setDefaultLang('es');
+    translate.use('es');
+  }
 }

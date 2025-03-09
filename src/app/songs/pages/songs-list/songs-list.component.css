@@ -38,9 +38,17 @@
 }
 
 .fab-button {
+  background-color: rgb(208, 208, 208);
+  border-radius: 100px;
   position: fixed;
   bottom: 2rem;
-  right: calc((100% - 1400px) / 2 + 2rem);
+  right: calc((100% - min(1320px, 90vw)) / 2) ;
   z-index: 1000;
+}
+
+@media (max-width: 600px) {
+  .fab-button {
+    right: 16px;
+  }
 }
 

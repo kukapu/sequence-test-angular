@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="song-list-container">
+    @if (songs().length === 0) {
+      <div class="empty-state">
+        <mat-icon>music_note</mat-icon>
+        <p>{{ 'SONGS.NO_SONGS' | translate }}</p>
+      </div>
+    } @else {
+      <div class="song-list">
+        @for (song of songs(); track song.id) {
+          <app-song-card [song]="song"></app-song-card>
+        }
+      </div>
+    }
+  </div>
+
+  <div class="fab-container">
+    <button mat-fab
+            color="primary"
+            class="add-button"
+            [routerLink]="['/songs/new']">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>

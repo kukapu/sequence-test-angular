@@ -1,13 +1,12 @@
 .song-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
+  padding: 1rem;
   max-width: 600px;
-  margin: 2rem auto;
-  padding: 2.5rem;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  position: relative;
+  min-height: calc(100vh - var(--toolbar-height));
 }
 
 ::ng-deep {
@@ -101,10 +100,6 @@
   .company-input {
     flex: 1;
   }
-
-  button {
-    margin-top: 8px;
-  }
 }
 
 .chips-container {
@@ -124,43 +119,83 @@ mat-form-field {
 }
 
 .error-message {
-  color: var(--mdc-theme-error, #f44336);
-  font-size: 12px;
-  margin-top: -12px;
-  margin-bottom: 12px;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
 }
 
 .form-actions {
   display: flex;
   gap: 1rem;
-  justify-content: flex-end;
   margin-top: 1rem;
+  justify-content: flex-end;
 
   button {
-    min-width: 120px;
-    border-radius: 20px;
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 0.5rem;
+  }
 
-    mat-icon {
-      margin-right: 4px;
+  .mat-icon-button {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: white;
+
+    .mat-icon {
+      margin: 0;
     }
   }
 }
 
+.mobile-fab-buttons {
+  display: none;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  gap: 1rem;
+  flex-direction: column;
+
+  button {
+    border-radius: 100px;
+    background-color: white;
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),
+                0 6px 10px 0 rgba(0,0,0,.14),
+                0 1px 18px 0 rgba(0,0,0,.12);
+
+    &.mat-primary {
+      background-color: var(--mdc-filled-button-container-color, #ffffff);
+    }
+
+    &.mat-warn {
+      background-color: var(--mdc-filled-button-error-container-color, #ffffff);
+    }
+
+    .mat-icon {
+      margin: 0;
+    }
+  }
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
+}
+
 @media (max-width: 600px) {
-  .song-form {
-    margin: 1rem;
-    padding: 1.5rem;
+  .form-actions {
+    display: none;
   }
 
-  .form-actions {
-    flex-direction: column;
+  .mobile-fab-buttons {
+    display: flex;
+  }
 
-    button {
-      width: 100%;
-    }
+  .button-text {
+    display: none;
   }
 }

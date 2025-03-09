@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-delete-dialog',
@@ -11,19 +12,20 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     MatDialogModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    TranslateModule
   ],
   template: `
-    <h2 mat-dialog-title>Confirmar eliminación</h2>
+    <h2 mat-dialog-title>{{ 'SONGS.DELETE_TITLE' | translate }}</h2>
     <mat-dialog-content>
-      <p>¿Estás seguro de que quieres eliminar esta canción?</p>
-      <p>Esta acción no se puede deshacer.</p>
+      <p>{{ 'SONGS.DELETE_MESSAGE' | translate }}</p>
+      <p>{{ 'SONGS.DELETE_WARNING' | translate }}</p>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-      <button mat-button (click)="onNoClick()">Cancelar</button>
+      <button mat-button (click)="onNoClick()">{{ 'COMMON.CANCEL' | translate }}</button>
       <button mat-raised-button color="warn" (click)="onYesClick()">
         <mat-icon>delete</mat-icon>
-        <span>Eliminar</span>
+        <span>{{ 'COMMON.DELETE' | translate }}</span>
       </button>
     </mat-dialog-actions>
   `,
