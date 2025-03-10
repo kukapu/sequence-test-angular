@@ -53,6 +53,7 @@ export class SongFormComponent implements OnInit {
   filteredCountries = this.songForm.filteredCountries;
   isEditing = signal(false);
   saving = signal(false);
+  isLoading = signal(false);
   songId: string | null = null;
 
   get form() {
@@ -80,6 +81,7 @@ export class SongFormComponent implements OnInit {
   ngOnInit(): void {
     const id = this.activeRouter.snapshot.paramMap.get('id');
     if (id) {
+      this.isLoading.set(true)
       this.songId = id;
       this.loadSong(id);
     } else {
@@ -94,6 +96,8 @@ export class SongFormComponent implements OnInit {
       this.songForm.setEditMode(false);
     } catch (error) {
       console.error('Error loading song:', error);
+    } finally {
+      this.isLoading.set(false)
     }
   }
 

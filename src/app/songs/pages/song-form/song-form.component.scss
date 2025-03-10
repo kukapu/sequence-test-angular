@@ -9,6 +9,84 @@
   min-height: calc(100vh - var(--toolbar-height));
 }
 
+/* Skeleton styles */
+.skeleton-form {
+  .skeleton-field {
+    height: 56px;
+    background: white;
+    border-radius: 8px;
+    animation: pulse 1.5s infinite;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+
+    &.companies {
+      display: flex;
+      gap: 1rem;
+
+      .skeleton-input {
+        flex: 1;
+        height: 100%;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+      }
+
+      .skeleton-button {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: white;
+        margin-top: 8px;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+      }
+    }
+  }
+
+  .skeleton-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-height: 32px;
+    margin: 0.5rem 0;
+
+    .skeleton-chip {
+      width: 100px;
+      height: 32px;
+      background: white;
+      border-radius: 16px;
+      animation: pulse 1.5s infinite;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  .skeleton-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1rem;
+
+    .skeleton-button {
+      width: 100px;
+      height: 36px;
+      background: white;
+      border-radius: 4px;
+      animation: pulse 1.5s infinite;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 ::ng-deep {
   .mat-mdc-form-field {
     .mdc-text-field--outlined {

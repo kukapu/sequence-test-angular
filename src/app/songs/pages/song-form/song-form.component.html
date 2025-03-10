@@ -1,4 +1,26 @@
-@if (form) {
+@if (isLoading()) {
+  <div class="song-form skeleton-form">
+    <div class="skeleton-field"></div>
+    <div class="skeleton-field"></div>
+    <div class="skeleton-field"></div>
+    <div class="skeleton-field companies">
+      <div class="skeleton-input"></div>
+      <div class="skeleton-button"></div>
+    </div>
+    <div class="skeleton-chips">
+      <div class="skeleton-chip"></div>
+      <div class="skeleton-chip"></div>
+      <div class="skeleton-chip"></div>
+    </div>
+    <div class="skeleton-field"></div>
+    <div class="skeleton-field"></div>
+    <div class="skeleton-field"></div>
+    <div class="skeleton-actions">
+      <div class="skeleton-button"></div>
+      <div class="skeleton-button"></div>
+    </div>
+  </div>
+} @else {
   <form [formGroup]="form" class="song-form">
     <mat-form-field appearance="outline">
       <mat-label>{{ 'SONGS.TITLE' | translate }}</mat-label>
@@ -208,9 +230,4 @@
       }
     </div>
   </form>
-} @else {
-  <div class="loading">
-    <mat-spinner></mat-spinner>
-    <p>{{ 'COMMON.LOADING' | translate }}</p>
-  </div>
 }

@@ -11,7 +11,7 @@
 
 .song-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 20px;
 }
 
@@ -24,6 +24,11 @@
   transform: translateY(-5px);
 }
 
+mat-card-title {
+  font-size: 22px;
+  font-weight: 500;
+}
+
 .genre-chips {
   display: flex;
   flex-wrap: wrap;
@@ -31,10 +36,85 @@
   margin-top: 16px;
 }
 
-.loading, .loading-more {
+/* Skeleton styles */
+.skeleton-card {
+  background: white;
+  border-radius: 4px;
+  padding: 16px;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+.skeleton-header {
+  padding: 16px;
+}
+
+.skeleton-title {
+  height: 28px;
+  width: 60%;
+  background: #f0f0f0;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-subtitle {
+  height: 20px;
+  width: 40%;
+  background: #f0f0f0;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-content {
+  padding: 16px;
+}
+
+.skeleton-chips {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.skeleton-chip {
+  height: 24px;
+  width: 80px;
+  background: #f0f0f0;
+  border-radius: 16px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.loading-more {
   display: flex;
   justify-content: center;
   padding: 20px;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.empty-state mat-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
 }
 
 .fab-button {
@@ -42,7 +122,7 @@
   border-radius: 100px;
   position: fixed;
   bottom: 2rem;
-  right: calc((100% - min(1320px, 90vw)) / 2) ;
+  right: calc((100% - min(1320px, 90vw)) / 2);
   z-index: 1000;
 }
 
