@@ -1,5 +1,5 @@
-:root {
-  --toolbar-height: 40px;
+:host {
+  --toolbar-height: 56px;
 }
 
 .sidenav-container {
@@ -30,13 +30,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: var(--toolbar-height) !important;
-    min-height: var(--toolbar-height) !important;
-    padding: 0 16px;
+    height: var(--toolbar-height);
+    min-height: var(--toolbar-height);
+    padding: 8px 16px;
   }
 
   .mat-toolbar-row {
-    height: var(--toolbar-height) !important;
+    height: var(--toolbar-height);
   }
 }
 
@@ -47,6 +47,11 @@
   top: 0;
   z-index: 1;
   background-color: var(--mdc-theme-primary, #ffffff);
+
+  span {
+    font-size: 30px;
+    font-weight: 800;
+  }
 }
 
 .spacer {
