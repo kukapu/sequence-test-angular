@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "api": "json-server --watch mock.json --port 3000"
+    "api": "json-server --watch mock.json --port 3000",
+    "start:api": "start /B npm run api && ng serve"
   },
   "private": true,
   "dependencies": {

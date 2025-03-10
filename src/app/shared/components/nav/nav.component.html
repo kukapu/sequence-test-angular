@@ -26,13 +26,18 @@
 
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      @if (isHandset$ | async) {
+      @if ((isHandset$ | async) && !isFormRoute()) {
         <button
           type="button"
           aria-label="Toggle sidenav"
           mat-icon-button
           (click)="$event.stopPropagation(); drawer.toggle()">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      }
+      @if (isFormRoute()) {
+        <button mat-icon-button (click)="goBack()">
+          <mat-icon>arrow_back</mat-icon>
         </button>
       }
       <span>{{currentTitle$ | async}}</span>

@@ -1,5 +1,5 @@
 :root {
-  --toolbar-height: 64px;
+  --toolbar-height: 40px;
 }
 
 .sidenav-container {
@@ -21,17 +21,29 @@
 
 .sidenav .mat-toolbar {
   background: inherit;
+  height: var(--toolbar-height);
+  min-height: var(--toolbar-height);
 }
 
-.mat-toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+:host ::ng-deep {
+  .mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--toolbar-height) !important;
+    min-height: var(--toolbar-height) !important;
+    padding: 0 16px;
+  }
+
+  .mat-toolbar-row {
+    height: var(--toolbar-height) !important;
+  }
 }
 
 .mat-toolbar.mat-primary {
   position: sticky;
   height: var(--toolbar-height);
+  min-height: var(--toolbar-height);
   top: 0;
   z-index: 1;
   background-color: var(--mdc-theme-primary, #ffffff);
