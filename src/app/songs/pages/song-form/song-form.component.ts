@@ -91,7 +91,7 @@ export class SongFormComponent implements OnInit {
     try {
       const song = await this.songService.getSongById(Number(id));
       this.songForm.setData(song);
-      this.isEditing.set(false);
+      this.songForm.setEditMode(false);
     } catch (error) {
       console.error('Error loading song:', error);
     }
@@ -131,10 +131,17 @@ export class SongFormComponent implements OnInit {
 
   edit() {
     this.isEditing.set(true);
+    this.songForm.setEditMode(true);
   }
 
   cancel() {
+    if (this.songId) {
+      this.loadSong(this.songId);
+    } else {
+      this.form.reset();
+    }
     this.isEditing.set(false);
+    this.songForm.setEditMode(false);
   }
 
   async save() {

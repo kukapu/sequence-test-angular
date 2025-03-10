@@ -4,7 +4,6 @@
       <mat-label>{{ 'SONGS.TITLE' | translate }}</mat-label>
       <input matInput
              formControlName="title"
-             [readonly]="!isEditing()"
              [placeholder]="'SONGS.TITLE_PLACEHOLDER' | translate">
       @if (form.get('title')?.errors?.['required'] && form.get('title')?.touched) {
         <mat-error>{{ 'SONGS.TITLE_REQUIRED' | translate }}</mat-error>
@@ -15,7 +14,6 @@
       <mat-label>{{ 'SONGS.ARTIST' | translate }}</mat-label>
       <input matInput
              formControlName="artist"
-             [readonly]="!isEditing()"
              [placeholder]="'SONGS.ARTIST_PLACEHOLDER' | translate">
       @if (form.get('artist')?.errors?.['required'] && form.get('artist')?.touched) {
         <mat-error>{{ 'SONGS.ARTIST_REQUIRED' | translate }}</mat-error>
@@ -26,7 +24,6 @@
       <mat-label>{{ 'SONGS.GENRES' | translate }}</mat-label>
       <mat-select formControlName="genre"
                   multiple
-                  [disabled]="!isEditing()"
                   [disableRipple]="!isEditing()"
                   (openedChange)="onSelectOpened($event)"
                   (keydown.backspace)="isEditing() ? removeLastGenre() : null">
@@ -123,7 +120,6 @@
         matInput
         type="number"
         formControlName="rating"
-        [readonly]="!isEditing()"
         min="0"
         max="10"
         step="0.01"
