@@ -27,7 +27,7 @@
       <input matInput
              formControlName="title"
              [placeholder]="'SONGS.TITLE_PLACEHOLDER' | translate">
-      @if (form.get('title')?.errors?.['required'] && form.get('title')?.touched) {
+      @if (form.get('title')?.errors && form.get('title')?.touched) {
         <mat-error>{{ 'SONGS.TITLE_REQUIRED' | translate }}</mat-error>
       }
     </mat-form-field>
@@ -37,7 +37,7 @@
       <input matInput
              formControlName="artist"
              [placeholder]="'SONGS.ARTIST_PLACEHOLDER' | translate">
-      @if (form.get('artist')?.errors?.['required'] && form.get('artist')?.touched) {
+      @if (form.get('artist')?.errors && form.get('artist')?.touched) {
         <mat-error>{{ 'SONGS.ARTIST_REQUIRED' | translate }}</mat-error>
       }
     </mat-form-field>
@@ -53,7 +53,7 @@
           <mat-option [value]="genre">{{ genre }}</mat-option>
         }
       </mat-select>
-      @if (form.get('genre')?.errors?.['required'] && form.get('genre')?.touched) {
+      @if (form.get('genre')?.errors && form.get('genre')?.touched) {
         <mat-error>{{ 'SONGS.GENRES_REQUIRED' | translate }}</mat-error>
       }
     </mat-form-field>
@@ -134,9 +134,18 @@
                       startView="multi-year"
                       (yearSelected)="chosenYearHandler($event, yearPicker)">
       </mat-datepicker>
+      @if (yearNumberControl.errors && yearNumberControl.touched) {
+        <mat-error>
+          @if (yearNumberControl.errors['min']) {
+            {{ 'SONGS.YEAR_MIN' | translate }}
+          } @else if (yearNumberControl.errors['max']) {
+            {{ 'SONGS.YEAR_MAX' | translate }}
+          }
+        </mat-error>
+      }
     </mat-form-field>
 
-    <mat-form-field appearance="outline" subscriptSizing="dynamic">
+    <mat-form-field appearance="outline">
       <mat-label>{{ 'SONGS.RATING' | translate }}</mat-label>
       <input
         matInput
@@ -147,18 +156,18 @@
         step="0.01"
         [placeholder]="'SONGS.RATING_PLACEHOLDER' | translate"
       >
+      @if (form.get('rating')?.errors && form.get('rating')?.touched) {
+        <mat-error>
+          @if (form.get('rating')?.errors?.['required']) {
+            {{ 'SONGS.RATING_REQUIRED' | translate }}
+          } @else if (form.get('rating')?.errors?.['min'] || form.get('rating')?.errors?.['max']) {
+            {{ 'SONGS.RATING_RANGE' | translate }}
+          } @else if (form.get('rating')?.errors?.['pattern']) {
+            {{ 'SONGS.RATING_DECIMALS' | translate }}
+          }
+        </mat-error>
+      }
     </mat-form-field>
-    @if (form.get('rating')?.errors && form.get('rating')?.touched) {
-      <div class="error-message">
-        @if (form.get('rating')?.errors?.['required']) {
-          <mat-error>{{ 'SONGS.RATING_REQUIRED' | translate }}</mat-error>
-        } @else if (form.get('rating')?.errors?.['min'] || form.get('rating')?.errors?.['max']) {
-          <mat-error>{{ 'SONGS.RATING_RANGE' | translate }}</mat-error>
-        } @else if (form.get('rating')?.errors?.['pattern']) {
-          <mat-error>{{ 'SONGS.RATING_DECIMALS' | translate }}</mat-error>
-        }
-      </div>
-    }
 
     <div class="form-actions">
       @if (!isEditing() && songId) {

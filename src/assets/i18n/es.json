@@ -44,7 +44,9 @@
     "RATING_DECIMALS": "Máximo 2 decimales permitidos",
     "DELETE_TITLE": "Confirmar eliminación",
     "DELETE_MESSAGE": "¿Estás seguro de que quieres eliminar esta canción?",
-    "DELETE_WARNING": "Esta acción no se puede deshacer"
+    "DELETE_WARNING": "Esta acción no se puede deshacer",
+    "YEAR_MIN": "El año no puede ser anterior a 1900",
+    "YEAR_MAX": "El año no puede ser posterior al año actual"
   },
   "ARTISTS": {
     "NAME": "Nombre",

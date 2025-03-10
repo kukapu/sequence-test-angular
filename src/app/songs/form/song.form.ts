@@ -18,8 +18,12 @@ interface SongFormType {
 export class SongForm {
   private fb = inject(FormBuilder);
   private readonly countries = ['España', 'Estados Unidos', 'Reino Unido', 'Francia', 'Alemania', 'Italia', 'Japón'];
+  private readonly maxYear = new Date().getFullYear();
 
-  yearNumberControl = new FormControl<number | null>(null);
+  yearNumberControl = new FormControl<number | null>(null, [
+    Validators.min(1900),
+    Validators.max(this.maxYear)
+  ]);
   yearDateControl = new FormControl<Date | null>(null);
   countryFilterCtrl = new FormControl<string>('');
   companies = signal<string[]>([]);
@@ -42,7 +46,10 @@ export class SongForm {
       companies: this.fb.array([] as FormControl<string>[]),
       country: this.fb.control<string | null>(''),
       duration: this.fb.control<number | null>(0),
-      year: this.fb.control<string | null>(''),
+      year: this.fb.control<string | null>('', [
+        Validators.min(1900),
+        Validators.max(this.maxYear)
+      ]),
       rating: this.fb.control<string | null>('', [
         Validators.required,
         Validators.min(0),

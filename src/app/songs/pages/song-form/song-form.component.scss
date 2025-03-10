@@ -92,6 +92,7 @@
     .mdc-text-field--outlined {
       --mdc-outlined-text-field-container-shape: 8px;
       background-color: white;
+      padding: 0 12px;
     }
 
     .mat-mdc-form-field-flex {
@@ -110,15 +111,18 @@
       background: white;
     }
 
-    .mat-mdc-form-field-error-wrapper {
+    .mat-mdc-form-field-subscript-wrapper {
+      min-height: 20px;
+      margin: 0;
       padding: 0;
-      position: static;
+      position: relative;
     }
 
     .mat-mdc-form-field-error {
       font-size: 12px;
-      margin-top: 4px;
-      color: var(--mdc-theme-error, #f44336);
+      margin: 0;
+      padding: 4px 0 0;
+      position: static;
     }
 
     .mat-mdc-form-field-required-marker {
@@ -194,11 +198,6 @@
 
 mat-form-field {
   width: 100%;
-}
-
-.error-message {
-  margin-top: -1rem;
-  margin-bottom: 1rem;
 }
 
 .form-actions {
