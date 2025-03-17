@@ -1,0 +1,147 @@
+.skeleton-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  overflow: hidden;
+  display: flex;
+  height: 100%;
+  min-height: 180px;
+}
+
+.skeleton-content {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton-header {
+  margin-bottom: 16px;
+}
+
+.skeleton-title {
+  height: 24px;
+  width: 70%;
+  background: #f0f0f0;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-artist {
+  display: flex;
+  align-items: center;
+}
+
+.skeleton-artist-icon {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  margin-right: 8px;
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-artist-name {
+  height: 16px;
+  width: 40%;
+  background: #f0f0f0;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-details {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.skeleton-info-item {
+  height: 16px;
+  width: 60px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.skeleton-chip {
+  height: 24px;
+  width: 60px;
+  background: #f0f0f0;
+  border-radius: 16px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+  .skeleton-card {
+    min-height: 160px;
+  }
+  
+  .skeleton-content {
+    padding: 16px;
+  }
+  
+  .skeleton-title {
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skeleton-card {
+    min-height: 150px;
+  }
+  
+  .skeleton-content {
+    padding: 12px;
+  }
+  
+  .skeleton-title {
+    height: 18px;
+    margin-bottom: 8px;
+  }
+  
+  .skeleton-artist-icon {
+    height: 14px;
+    width: 14px;
+    margin-right: 6px;
+  }
+  
+  .skeleton-artist-name {
+    height: 14px;
+  }
+  
+  .skeleton-details {
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .skeleton-info-item {
+    height: 14px;
+    width: 50px;
+  }
+  
+  .skeleton-chip {
+    height: 20px;
+    width: 50px;
+  }
+}

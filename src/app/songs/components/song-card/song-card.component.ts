@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
 import { Song } from '../../models/song.model';
 
 @Component({
@@ -10,47 +11,37 @@ import { Song } from '../../models/song.model';
   imports: [
     CommonModule,
     MatCardModule,
-    MatChipsModule
+    MatChipsModule,
+    MatIconModule
   ],
-  template: `
-    <mat-card class="song-card" (click)="songSelected.emit(song)">
-      <mat-card-header>
-        <mat-card-title>{{ song.title }}</mat-card-title>
-        <mat-card-subtitle>{{ song.artist.name }}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <div class="genre-chips">
-          @for (genre of song.genre; track genre) {
-            <mat-chip selected>{{ genre }}</mat-chip>
-          }
-        </div>
-      </mat-card-content>
-    </mat-card>
-  `,
-  styles: [`
-    .song-card {
-      cursor: pointer;
-      transition: transform 0.2s ease-in-out;
-    }
-    
-    .song-card:hover {
-      transform: translateY(-5px);
-    }
-    
-    mat-card-title {
-      font-size: 22px;
-      font-weight: 500;
-    }
-    
-    .genre-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
-    }
-  `]
+  templateUrl: './song-card.component.html',
+  styleUrls: ['./song-card.component.scss']
 })
 export class SongCardComponent {
-  @Input({ required: true }) song!: Song;
+  @Input() song!: Song;
   @Output() songSelected = new EventEmitter<Song>();
+
+  getGenreClass(genre: string): string {
+    const genreMap: { [key: string]: string } = {
+      'Rock': 'genre-rock',
+      'Pop': 'genre-pop',
+      'Jazz': 'genre-jazz',
+      'Electronic': 'genre-electronic',
+      'Classical': 'genre-classical',
+      'Hip Hop': 'genre-hiphop',
+      'Reggae': 'genre-reggae',
+      'Folk': 'genre-folk',
+      'Metal': 'genre-metal',
+      'Country': 'genre-country',
+      'Blues': 'genre-blues'
+    };
+
+    return genreMap[genre] || 'genre-other';
+  }
+
+  formatDuration(seconds: number): string {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+  }
 }

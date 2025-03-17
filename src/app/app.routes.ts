@@ -4,19 +4,18 @@ export const routes: Routes = [
   { path: '', redirectTo: 'songs', pathMatch: 'full' },
   {
     path: 'songs',
-    loadChildren: () => import('./songs/songs.routes').then(m => m.SONGS_ROUTES)
+    loadChildren: () => import('./songs/songs.routes')
   },
   {
     path: 'artists',
-    loadComponent: () => import('./artists/pages/artist-list/artist-list.component').then(m => m.ArtistListComponent)
+    loadComponent: () => import('./artists/pages/artist-list/artist-list.component')
   },
   {
     path: 'companies',
-    loadComponent: () => import('./companies/pages/company-list/company-list.component').then(m => m.CompanyListComponent)
+    loadComponent: () => import('./companies/pages/company-list/company-list.component')
   },
   {
-    path: '',
+    path: '**',
     redirectTo: 'songs',
-    pathMatch: 'full'
   }
 ];

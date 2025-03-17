@@ -1,0 +1,258 @@
+.song-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  height: 100%;
+  min-height: 180px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.song-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card-header {
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.song-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 52px;
+}
+
+mat-card-subtitle {
+  margin: 0;
+}
+
+.artist-info {
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.artist-icon {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  margin-right: 2px;
+  flex-shrink: 0;
+}
+
+.artist-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.song-details {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.duration-info, .year-info {
+  display: flex;
+  align-items: center;
+}
+
+.duration-info mat-icon, .year-info mat-icon {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  flex-shrink: 0;
+}
+
+.detail-icon {
+  font-size: 16px;
+  height: 16px;
+  width: 16px;
+  margin-right: 2px;
+}
+
+.detail-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.genre-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  max-height: 64px;
+  overflow-y: auto;
+}
+
+mat-chip {
+  font-size: 12px;
+  min-height: 24px;
+  padding: 0 10px;
+  background-color: #f0f0f0;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+/* Clases de color para géneros */
+.genre-rock {
+  background-color: #ef5350 !important;
+  color: white !important;
+}
+
+.genre-pop {
+  background-color: #42a5f5 !important;
+  color: white !important;
+}
+
+.genre-jazz {
+  background-color: #7e57c2 !important;
+  color: white !important;
+}
+
+.genre-electronic {
+  background-color: #26c6da !important;
+  color: white !important;
+}
+
+.genre-classical {
+  background-color: #78909c !important;
+  color: white !important;
+}
+
+.genre-hiphop {
+  background-color: #ffca28 !important;
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.genre-reggae {
+  background-color: #66bb6a !important;
+  color: white !important;
+}
+
+.genre-folk {
+  background-color: #8d6e63 !important;
+  color: white !important;
+}
+
+.genre-metal {
+  background-color: #212121 !important;
+  color: white !important;
+}
+
+.genre-country {
+  background-color: #ff7043 !important;
+  color: white !important;
+}
+
+.genre-blues {
+  background-color: #5c6bc0 !important;
+  color: white !important;
+}
+
+.genre-other {
+  background-color: #bdbdbd !important;
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+/* Scrollbar styling for genre chips */
+.genre-chips::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.genre-chips::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.genre-chips::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.genre-chips::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+  .song-card {
+    min-height: 160px;
+  }
+  
+  .card-content {
+    padding: 16px;
+  }
+  
+  .song-title {
+    font-size: 18px;
+    max-height: 46px;
+  }
+  
+  .song-details {
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .song-card {
+    min-height: 150px;
+  }
+  
+  .card-content {
+    padding: 12px;
+  }
+  
+  .song-title {
+    font-size: 16px;
+    max-height: 42px;
+    margin-bottom: 6px;
+  }
+  
+  .artist-info, .song-details {
+    font-size: 13px;
+  }
+  
+  .song-details {
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .genre-chips {
+    max-height: 54px;
+  }
+  
+  mat-chip {
+    font-size: 11px;
+    min-height: 22px;
+    padding: 0 8px;
+  }
+}

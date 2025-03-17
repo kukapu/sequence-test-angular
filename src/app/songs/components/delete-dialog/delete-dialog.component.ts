@@ -15,36 +15,8 @@ import { TranslateModule } from '@ngx-translate/core';
     MatIconModule,
     TranslateModule
   ],
-  template: `
-    <h2 mat-dialog-title>{{ 'SONGS.DELETE_TITLE' | translate }}</h2>
-    <mat-dialog-content>
-      <p>{{ 'SONGS.DELETE_MESSAGE' | translate }}</p>
-      <p>{{ 'SONGS.DELETE_WARNING' | translate }}</p>
-    </mat-dialog-content>
-    <mat-dialog-actions align="end">
-      <button mat-button (click)="onNoClick()">{{ 'COMMON.CANCEL' | translate }}</button>
-      <button mat-raised-button color="warn" (click)="onYesClick()">
-        <mat-icon>delete</mat-icon>
-        <span>{{ 'COMMON.DELETE' | translate }}</span>
-      </button>
-    </mat-dialog-actions>
-  `,
-  styles: [`
-    mat-dialog-content {
-      min-width: 300px;
-    }
-
-    mat-dialog-actions {
-      padding: 1rem;
-      gap: 0.5rem;
-    }
-
-    button {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-  `]
+  templateUrl: './delete-dialog.component.html',
+  styleUrls: ['./delete-dialog.component.scss']
 })
 export class DeleteDialogComponent {
   private dialogRef = inject(MatDialogRef<DeleteDialogComponent>);

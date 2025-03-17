@@ -16,3 +16,6 @@ export const SONGS_ROUTES: Routes = [
     component: SongFormComponent
   }
 ];
+
+
+export default SONGS_ROUTES;

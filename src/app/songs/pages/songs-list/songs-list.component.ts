@@ -27,7 +27,7 @@ import { SkeletonCardComponent } from "../../../shared/components/skeleton-card/
     PaginationService<Song>
   ],
   templateUrl: 'songs-list.component.html',
-  styleUrls: ['songs-list.component.css']
+  styleUrls: ['songs-list.component.scss']
 })
 export class SongListComponent implements OnInit {
   private songsService = inject(SongsService);

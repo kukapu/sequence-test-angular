@@ -1,5 +1,8 @@
 @if (isLoading()) {
   <div class="song-form skeleton-form">
+    <div class="form-header skeleton-header">
+      <div class="skeleton-title"></div>
+    </div>
     <div class="skeleton-field"></div>
     <div class="skeleton-field"></div>
     <div class="skeleton-field"></div>
@@ -21,184 +24,176 @@
     </div>
   </div>
 } @else {
-  <form [formGroup]="form" class="song-form">
-    <mat-form-field appearance="outline">
-      <mat-label>{{ 'SONGS.TITLE' | translate }}</mat-label>
-      <input matInput
-             formControlName="title"
-             [placeholder]="'SONGS.TITLE_PLACEHOLDER' | translate">
-      @if (form.get('title')?.errors && form.get('title')?.touched) {
-        <mat-error>{{ 'SONGS.TITLE_REQUIRED' | translate }}</mat-error>
-      }
-    </mat-form-field>
+  <form [formGroup]="form" class="song-form slide-up">
+    <div class="form-header">
+      <h2 class="form-title">
+        {{ (songId ? 'SONGS.EDIT_SONG' : 'SONGS.NEW_SONG') | translate }}
+      </h2>
+    </div>
 
-    <mat-form-field appearance="outline">
-      <mat-label>{{ 'SONGS.ARTIST' | translate }}</mat-label>
-      <input matInput
-             formControlName="artist"
-             [placeholder]="'SONGS.ARTIST_PLACEHOLDER' | translate">
-      @if (form.get('artist')?.errors && form.get('artist')?.touched) {
-        <mat-error>{{ 'SONGS.ARTIST_REQUIRED' | translate }}</mat-error>
-      }
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>{{ 'SONGS.GENRES' | translate }}</mat-label>
-      <mat-select formControlName="genre"
-                  multiple
-                  [disableRipple]="!isEditing()"
-                  (openedChange)="onSelectOpened($event)"
-                  (keydown.backspace)="isEditing() ? removeLastGenre() : null">
-        @for (genre of genres; track genre) {
-          <mat-option [value]="genre">{{ genre }}</mat-option>
-        }
-      </mat-select>
-      @if (form.get('genre')?.errors && form.get('genre')?.touched) {
-        <mat-error>{{ 'SONGS.GENRES_REQUIRED' | translate }}</mat-error>
-      }
-    </mat-form-field>
-
-    <div class="companies-section">
-      <mat-form-field appearance="outline" class="company-input">
-        <mat-label>{{ 'SONGS.COMPANY' | translate }}</mat-label>
+    <div class="form-section">
+      <h3 class="section-title">{{ 'SONGS.BASIC_INFO' | translate }}</h3>
+      
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'SONGS.TITLE' | translate }}</mat-label>
         <input matInput
-              [disabled]="!isEditing()"
-              #companyInput
-              [placeholder]="'SONGS.COMPANY_PLACEHOLDER' | translate"
-              (keyup.enter)="addCompany(companyInput.value, companyInput)">
-      </mat-form-field>
-      @if (isEditing()) {
-        <button type="button"
-                mat-icon-button
-                color="primary"
-                (click)="addCompany(companyInput.value, companyInput)">
-          <mat-icon>add</mat-icon>
-        </button>
-      }
-    </div>
-
-    <div class="chips-container">
-      @for (company of companies(); track company; let i = $index) {
-        <mat-chip-row [removable]="isEditing()" (removed)="removeCompany(i)">
-          {{ company }}
-          @if (isEditing()) {
-            <button matChipRemove>
-              <mat-icon>cancel</mat-icon>
-            </button>
-          }
-        </mat-chip-row>
-      }
-    </div>
-
-    <mat-form-field appearance="outline">
-      <mat-label>{{ 'SONGS.COUNTRY' | translate }}</mat-label>
-      <input matInput
-             type="text"
-             [formControl]="countryFilterCtrl"
-             [matAutocomplete]="auto"
-             [readonly]="!isEditing()"
-             (keydown.backspace)="clearCountryOnBackspace($any($event))"
-             (keydown.enter)="$any($event).stopPropagation()"
-             [placeholder]="'SONGS.COUNTRY_PLACEHOLDER' | translate">
-      <mat-autocomplete #auto="matAutocomplete"
-                       (optionSelected)="onCountrySelected($event)"
-                       [displayWith]="displayFn"
-                       [autoActiveFirstOption]="true">
-        @for (country of filteredCountries(); track country) {
-          <mat-option [value]="country">{{ country }}</mat-option>
+              formControlName="title"
+              [placeholder]="'SONGS.TITLE_PLACEHOLDER' | translate">
+        <mat-icon matSuffix>music_note</mat-icon>
+        @if (form.get('title')?.errors && form.get('title')?.touched) {
+          <mat-error>{{ 'SONGS.TITLE_REQUIRED' | translate }}</mat-error>
         }
-      </mat-autocomplete>
-    </mat-form-field>
+      </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>{{ 'SONGS.YEAR' | translate }}</mat-label>
-      <input matInput
-             type="number"
-             [formControl]="yearNumberControl"
-             [max]="maxDate.getFullYear()"
-             [min]="1900"
-             [readonly]="!isEditing()"
-             [placeholder]="'SONGS.YEAR_PLACEHOLDER' | translate">
-      <input [matDatepicker]="yearPicker"
-             [formControl]="yearDateControl"
-             class="cdk-visually-hidden">
-      @if (isEditing()) {
-        <button matSuffix
-                mat-icon-button
-                type="button"
-                (click)="yearPicker.open()">
-          <mat-icon>calendar_today</mat-icon>
-        </button>
-      }
-      <mat-datepicker #yearPicker
-                      startView="multi-year"
-                      (yearSelected)="chosenYearHandler($event, yearPicker)">
-      </mat-datepicker>
-      @if (yearNumberControl.errors && yearNumberControl.touched) {
-        <mat-error>
-          @if (yearNumberControl.errors['min']) {
-            {{ 'SONGS.YEAR_MIN' | translate }}
-          } @else if (yearNumberControl.errors['max']) {
-            {{ 'SONGS.YEAR_MAX' | translate }}
-          }
-        </mat-error>
-      }
-    </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'SONGS.ARTIST' | translate }}</mat-label>
+        <input matInput
+              formControlName="artist"
+              [placeholder]="'SONGS.ARTIST_PLACEHOLDER' | translate">
+        <mat-icon matSuffix>person</mat-icon>
+        @if (form.get('artist')?.errors && form.get('artist')?.touched) {
+          <mat-error>{{ 'SONGS.ARTIST_REQUIRED' | translate }}</mat-error>
+        }
+      </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>{{ 'SONGS.RATING' | translate }}</mat-label>
-      <input
-        matInput
-        type="number"
-        formControlName="rating"
-        min="0"
-        max="10"
-        step="0.01"
-        [placeholder]="'SONGS.RATING_PLACEHOLDER' | translate"
-      >
-      @if (form.get('rating')?.errors && form.get('rating')?.touched) {
-        <mat-error>
-          @if (form.get('rating')?.errors?.['required']) {
-            {{ 'SONGS.RATING_REQUIRED' | translate }}
-          } @else if (form.get('rating')?.errors?.['min'] || form.get('rating')?.errors?.['max']) {
-            {{ 'SONGS.RATING_RANGE' | translate }}
-          } @else if (form.get('rating')?.errors?.['pattern']) {
-            {{ 'SONGS.RATING_DECIMALS' | translate }}
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'SONGS.GENRES' | translate }}</mat-label>
+        <mat-select formControlName="genre"
+                    multiple
+                    [disableRipple]="!isEditing()"
+                    (openedChange)="onSelectOpened($event)"
+                    (keydown.backspace)="isEditing() ? removeLastGenre() : null">
+          @for (genre of genres; track genre) {
+            <mat-option [value]="genre">{{ genre }}</mat-option>
           }
-        </mat-error>
-      }
-    </mat-form-field>
+        </mat-select>
+        <mat-icon matSuffix>category</mat-icon>
+        @if (form.get('genre')?.errors && form.get('genre')?.touched) {
+          <mat-error>{{ 'SONGS.GENRES_REQUIRED' | translate }}</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="form-section">
+      <h3 class="section-title">{{ 'SONGS.COMPANIES' | translate }}</h3>
+      
+      <div class="companies-section">
+        <mat-form-field appearance="outline" class="company-input">
+          <mat-label>{{ 'SONGS.COMPANY' | translate }}</mat-label>
+          <input matInput
+                [disabled]="!isEditing()"
+                #companyInput
+                [placeholder]="'SONGS.COMPANY_PLACEHOLDER' | translate"
+                (keyup.enter)="addCompany(companyInput.value, companyInput)">
+          <mat-icon matSuffix>business</mat-icon>
+        </mat-form-field>
+        @if (isEditing()) {
+          <button type="button"
+                  mat-mini-fab
+                  color="primary"
+                  class="add-button"
+                  (click)="addCompany(companyInput.value, companyInput)">
+            <mat-icon>add</mat-icon>
+          </button>
+        }
+      </div>
+
+      <div class="chips-container">
+        @for (company of companies(); track company; let i = $index) {
+          <mat-chip-row [removable]="isEditing()" (removed)="removeCompany(i)">
+            <mat-icon matChipAvatar>business</mat-icon>
+            {{ company }}
+            @if (isEditing()) {
+              <button matChipRemove>
+                <mat-icon>cancel</mat-icon>
+              </button>
+            }
+          </mat-chip-row>
+        }
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h3 class="section-title">{{ 'SONGS.ADDITIONAL_INFO' | translate }}</h3>
+      
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'SONGS.COUNTRY' | translate }}</mat-label>
+        <input matInput
+              type="text"
+              [formControl]="countryFilterCtrl"
+              [matAutocomplete]="auto"
+              [readonly]="!isEditing()"
+              (keydown.backspace)="clearCountryOnBackspace($any($event))"
+              (keydown.enter)="$any($event).stopPropagation()"
+              [placeholder]="'SONGS.COUNTRY_PLACEHOLDER' | translate">
+        <mat-icon matSuffix>public</mat-icon>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onCountrySelected($event)">
+          @for (country of filteredCountries | async; track country) {
+            <mat-option [value]="country">{{ country }}</mat-option>
+          }
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <div class="two-columns">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'SONGS.YEAR' | translate }}</mat-label>
+          <input matInput
+                type="number"
+                formControlName="year"
+                [readonly]="!isEditing()"
+                [placeholder]="'SONGS.YEAR_PLACEHOLDER' | translate">
+          <mat-icon matSuffix>event</mat-icon>
+          @if (form.get('year')?.errors && form.get('year')?.touched) {
+            <mat-error>{{ 'SONGS.YEAR_INVALID' | translate }}</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'SONGS.DURATION' | translate }}</mat-label>
+          <input matInput
+                type="number"
+                formControlName="duration"
+                [readonly]="!isEditing()"
+                [placeholder]="'SONGS.DURATION_PLACEHOLDER' | translate">
+          <mat-icon matSuffix>schedule</mat-icon>
+          @if (form.get('duration')?.errors && form.get('duration')?.touched) {
+            <mat-error>{{ 'SONGS.DURATION_INVALID' | translate }}</mat-error>
+          }
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'SONGS.RATING' | translate }}</mat-label>
+        <input
+          matInput
+          type="number"
+          formControlName="rating"
+          [readonly]="!isEditing()"
+          [placeholder]="'SONGS.RATING_PLACEHOLDER' | translate">
+        <mat-icon matSuffix>star</mat-icon>
+        @if (form.get('rating')?.errors && form.get('rating')?.touched) {
+          <mat-error>{{ 'SONGS.RATING_INVALID' | translate }}</mat-error>
+        }
+      </mat-form-field>
+    </div>
 
     <div class="form-actions">
       @if (!isEditing() && songId) {
-        <button mat-raised-button
-                color="primary"
-                type="button"
-                (click)="edit()">
-          <mat-icon>edit</mat-icon>
-          <span class="button-text">{{ 'COMMON.EDIT' | translate }}</span>
-        </button>
-        <button mat-raised-button
-                color="warn"
-                type="button"
-                (click)="delete()">
+        <button mat-stroked-button color="warn" type="button" (click)="delete()">
           <mat-icon>delete</mat-icon>
           <span class="button-text">{{ 'COMMON.DELETE' | translate }}</span>
         </button>
+        <button mat-stroked-button color="primary" type="button" (click)="edit()">
+          <mat-icon>edit</mat-icon>
+          <span class="button-text">{{ 'COMMON.EDIT' | translate }}</span>
+        </button>
       } @else {
-        <button mat-raised-button
-                color="primary"
-                type="submit"
-                [disabled]="!form.valid || saving()"
-                (click)="save()">
+        <button mat-raised-button color="primary" type="button" [disabled]="!form.valid || saving()" (click)="save()">
           <mat-icon>save</mat-icon>
           <span class="button-text">{{ 'COMMON.SAVE' | translate }}</span>
         </button>
         @if (songId) {
-          <button mat-button
-                  type="button"
-                  [disabled]="saving()"
-                  (click)="cancel()">
+          <button mat-stroked-button type="button" [disabled]="saving()" (click)="cancel()">
             <mat-icon>close</mat-icon>
             <span class="button-text">{{ 'COMMON.CANCEL' | translate }}</span>
           </button>
@@ -208,32 +203,19 @@
 
     <div class="mobile-fab-buttons">
       @if (!isEditing() && songId) {
-        <button mat-fab
-                color="warn"
-                type="button"
-                (click)="delete()">
+        <button mat-fab color="warn" type="button" (click)="delete()">
           <mat-icon>delete</mat-icon>
         </button>
-        <button mat-fab
-                color="primary"
-                type="button"
-                (click)="edit()">
+        <button mat-fab color="primary" type="button" (click)="edit()">
           <mat-icon>edit</mat-icon>
         </button>
       } @else {
         @if (songId) {
-          <button mat-fab
-                  type="button"
-                  [disabled]="saving()"
-                  (click)="cancel()">
+          <button mat-fab type="button" [disabled]="saving()" (click)="cancel()">
             <mat-icon>close</mat-icon>
           </button>
         }
-        <button mat-fab
-                color="primary"
-                type="submit"
-                [disabled]="!form.valid || saving()"
-                (click)="save()">
+        <button mat-fab color="primary" type="button" [disabled]="!form.valid || saving()" (click)="save()">
           <mat-icon>save</mat-icon>
         </button>
       }

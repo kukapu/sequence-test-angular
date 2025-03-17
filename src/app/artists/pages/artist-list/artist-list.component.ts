@@ -9,3 +9,5 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class ArtistListComponent {}
+
+export default ArtistListComponent;

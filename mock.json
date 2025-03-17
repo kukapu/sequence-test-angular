@@ -6,15 +6,9 @@
       "poster": "http://dummyimage.com/400x600.png/dddddd/000000",
       "genre": [
         "Pop",
-        "Rock",
-        "Alternative",
-        "Chill",
-        "Heavy",
-        "Romance",
-        "Blues",
-        "Psychedelic rock"
+        "Rock"
       ],
-      "year": 1967,
+      "year": 1966,
       "duration": 303,
       "rating": 8.99,
       "artist": 2

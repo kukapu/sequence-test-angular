@@ -1,0 +1,30 @@
+<mat-card class="song-card slide-up" (click)="songSelected.emit(song)">
+  <div class="card-content">
+    <mat-card-header>
+      <mat-card-title class="song-title">{{ song.title }}</mat-card-title>
+      <mat-card-subtitle>
+        <div class="artist-info">
+          <mat-icon class="artist-icon">person</mat-icon>
+          <span class="artist-name">{{ song.artist.name }}</span>
+        </div>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="song-details">
+        <div class="duration-info" *ngIf="song.duration">
+          <mat-icon class="detail-icon">schedule</mat-icon>
+          <span class="detail-text">{{ formatDuration(song.duration) }}</span>
+        </div>
+        <div class="year-info" *ngIf="song.year">
+          <mat-icon class="detail-icon">event</mat-icon>
+          <span class="detail-text">{{ song.year }}</span>
+        </div>
+      </div>
+      <div class="genre-chips">
+        @for (genre of song.genre; track genre) {
+          <mat-chip [ngClass]="getGenreClass(genre)">{{ genre }}</mat-chip>
+        }
+      </div>
+    </mat-card-content>
+  </div>
+</mat-card>

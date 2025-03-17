@@ -1,5 +1,7 @@
 import { inject, signal } from "@angular/core";
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { Observable, of } from "rxjs";
+import { map, startWith } from "rxjs/operators";
 import { Song } from "../models/song.model";
 
 interface SongFormType {
@@ -27,7 +29,7 @@ export class SongForm {
   yearDateControl = new FormControl<Date | null>(null);
   countryFilterCtrl = new FormControl<string>('');
   companies = signal<string[]>([]);
-  filteredCountries = signal<string[]>(this.countries);
+  filteredCountries!: Observable<string[]>;
 
   form!: FormGroup<SongFormType>;
 
@@ -60,16 +62,17 @@ export class SongForm {
   }
 
   private initSubscriptions(): void {
-    this.countryFilterCtrl.valueChanges.subscribe(filterValue => {
-      if (filterValue !== null) {
+    // Configurar el filtro de países como un Observable
+    this.filteredCountries = this.countryFilterCtrl.valueChanges.pipe(
+      startWith(''),
+      map(filterValue => {
+        if (!filterValue) return this.countries;
         const filter = filterValue.toLowerCase();
-        this.filteredCountries.set(
-          this.countries.filter(country =>
-            country.toLowerCase().includes(filter)
-          )
+        return this.countries.filter(country =>
+          country.toLowerCase().includes(filter)
         );
-      }
-    });
+      })
+    );
 
     this.form.get('country')?.valueChanges.subscribe(value => {
       if (value !== this.countryFilterCtrl.value) {
@@ -127,30 +130,60 @@ export class SongForm {
 
   removeCompany(index: number) {
     this.companiesArray.removeAt(index);
-    this.companies.update(current => current.filter((_, i) => i !== index));
+    this.companies.update(current => {
+      const updated = [...current];
+      updated.splice(index, 1);
+      return updated;
+    });
   }
 
   removeLastGenre() {
-    const currentGenres = this.form.get('genre')?.value as string[];
-    if (currentGenres?.length > 0) {
-      this.form.patchValue({
-        genre: currentGenres.slice(0, -1)
-      });
+    const genreControl = this.form.get('genre');
+    if (genreControl && genreControl.value) {
+      const currentGenres = [...genreControl.value];
+      if (currentGenres.length > 0) {
+        currentGenres.pop();
+        genreControl.setValue(currentGenres);
+      }
     }
   }
 
   onYearSelected(year: number) {
     this.yearNumberControl.setValue(year);
-    this.form.patchValue({ year: year.toString() });
-  }
-
-  onCountrySelected(country: string) {
-    this.form.patchValue({ country });
+    this.form.get('year')?.setValue(year.toString());
   }
 
   clearCountry() {
-    this.form.patchValue({ country: '' });
+    this.form.get('country')?.setValue(null);
     this.countryFilterCtrl.setValue('');
+  }
+
+  onCountrySelected(country: string) {
+    this.form.get('country')?.setValue(country);
+  }
+
+  setEditMode(isEditing: boolean) {
+    if (!isEditing) {
+      Object.keys(this.form.controls).forEach(key => {
+        const control = this.form.get(key);
+        if (control) {
+          control.disable();
+        }
+      });
+      this.yearNumberControl.disable();
+      this.yearDateControl.disable();
+      this.countryFilterCtrl.disable();
+    } else {
+      Object.keys(this.form.controls).forEach(key => {
+        const control = this.form.get(key);
+        if (control) {
+          control.enable();
+        }
+      });
+      this.yearNumberControl.enable();
+      this.yearDateControl.enable();
+      this.countryFilterCtrl.enable();
+    }
   }
 
   getValue(): Partial<Song> {
@@ -162,18 +195,5 @@ export class SongForm {
       rating: formValue.rating ? Number(formValue.rating) : undefined,
       duration: formValue.duration ? Number(formValue.duration) : undefined
     } as Partial<Song>;
-  }
-
-  setEditMode(isEditing: boolean) {
-    Object.keys(this.form.controls).forEach(controlName => {
-      const control = this.form.get(controlName);
-      if (control) {
-        if (isEditing) {
-          control.enable();
-        } else {
-          control.disable();
-        }
-      }
-    });
   }
 }

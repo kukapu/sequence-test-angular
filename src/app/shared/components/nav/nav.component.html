@@ -3,14 +3,17 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="!(isHandset$ | async)"
       (click)="$event.stopPropagation()">
-    <mat-toolbar>
-      {{ 'MENU.MENU' | translate }}
+    <div class="sidenav-header">
+      <div class="logo-container">
+        <mat-icon class="logo-icon">music_note</mat-icon>
+        <span class="logo-text">Sequence</span>
+      </div>
       @if (isHandset$ | async) {
         <button mat-icon-button class="close-button" (click)="drawer.close()">
           <mat-icon>close</mat-icon>
         </button>
       }
-    </mat-toolbar>
+    </div>
     <mat-nav-list>
       @for (item of menuItems; track item.path) {
         <a mat-list-item
@@ -18,30 +21,45 @@
            routerLinkActive="active"
            (click)="closeIfHandset(drawer)">
           <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
-          {{item.label | translate}}
+          <span>{{item.label | translate}}</span>
         </a>
       }
     </mat-nav-list>
+    <div class="sidenav-footer">
+      <div class="version">v1.0.0</div>
+    </div>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      @if ((isHandset$ | async) && !isFormRoute()) {
-        <button
-          type="button"
-          aria-label="Toggle sidenav"
-          mat-icon-button
-          (click)="$event.stopPropagation(); drawer.toggle()">
-          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    <mat-toolbar class="app-navbar">
+      <div class="navbar-left">
+        @if ((isHandset$ | async) && !isFormRoute()) {
+          <button
+            type="button"
+            aria-label="Toggle sidenav"
+            mat-icon-button
+            (click)="$event.stopPropagation(); drawer.toggle()">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          </button>
+        }
+        @if (isFormRoute()) {
+          <button mat-icon-button class="back-button" (click)="goBack()">
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+        }
+        <h1 class="page-title">{{currentTitle$ | async}}</h1>
+      </div>
+      <div class="navbar-right">
+        <button mat-icon-button aria-label="Search">
+          <mat-icon>search</mat-icon>
         </button>
-      }
-      @if (isFormRoute()) {
-        <button mat-icon-button (click)="goBack()">
-          <mat-icon>arrow_back</mat-icon>
+        <button mat-icon-button aria-label="Settings">
+          <mat-icon>settings</mat-icon>
         </button>
-      }
-      <span>{{currentTitle$ | async}}</span>
+      </div>
     </mat-toolbar>
-    <ng-content />
+    <div class="content-wrapper route-animation-fade">
+      <ng-content />
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
