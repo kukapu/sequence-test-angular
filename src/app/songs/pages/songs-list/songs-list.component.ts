@@ -1,4 +1,4 @@
-import { Component, inject, signal } from "@angular/core";
+import { Component, ElementRef, inject, signal, viewChild } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { MatCardModule } from "@angular/material/card";
 import { MatChipsModule } from "@angular/material/chips";
@@ -34,34 +34,40 @@ export class SongListComponent {
   hasMore = signal(true);
   readonly pageSize = 20;
 
+  scrollContainerRef = viewChild<ElementRef<HTMLDivElement>>('scrollcontainer')
+
   ngOnInit() {
     this.loadSongs();
   }
 
   async loadSongs(loadMore = false) {
-    if (this.loading()) return;
+    if (this.loading() || (!loadMore && !this.hasMore())) return;
 
     try {
       this.loading.set(true);
-      const data = await this.songsService.getAllSongs()
+
+      if (!loadMore) {
+        this.page.set(1);
+        this.songs.set([]);
+        this.hasMore.set(true);
+      }
+
+      const data = await this.songsService.getSongs(this.page(), this.pageSize);
       console.log(data)
-      this.songs.update(songs => [...songs, ...data])
+      
+      if (data.length === 0) {
+        this.hasMore.set(false);
+        return;
+      }
+      
+      this.songs.update(songs => [...songs, ...data]);
 
-      // if (!loadMore) {
-      //   this.page.set(1);
-      //   this.songs.set([]);
-      // }
-
-      // const data = await this.songsService.getSongs(this.page(), this.pageSize);
-      // console.log(data)
-      // this.songs.update(songs => [...songs, ...data]);
-
-      // if (data.length === this.pageSize) {
-      //   this.page.update(p => p + 1);
-      //   this.hasMore.set(true);
-      // } else {
-      //   this.hasMore.set(false);
-      // }
+      if (data.length === this.pageSize) {
+        this.page.update(p => p + 1);
+        this.hasMore.set(true);
+      } else {
+        this.hasMore.set(false);
+      }
 
     } catch (error) {
       console.error('Error loading songs:', error);
@@ -70,10 +76,15 @@ export class SongListComponent {
     }
   }
 
-  onScroll() {
-    console.log('onScroll called', { hasMore: this.hasMore(), loading: this.loading() });
-    if (this.hasMore() && !this.loading()) {
-      console.log('Loading more songs...');
+  onScroll(event: Event) {
+    const container = this.scrollContainerRef()?.nativeElement;
+    if (!container) return;
+
+    const topScroll = container?.scrollTop;
+    const containerHeight = container?.clientHeight;
+    const scrollHeight = container?.scrollHeight;
+
+    if (topScroll + containerHeight >= scrollHeight - 150 && this.hasMore() && !this.loading()) {
       this.loadSongs(true);
     }
   }

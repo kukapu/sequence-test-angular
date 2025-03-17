@@ -2,7 +2,8 @@
   infiniteScroll
   [infiniteScrollDistance]="2"
   [infiniteScrollThrottle]="50"
-  (scrolled)="onScroll()"
+  (scroll)="onScroll($event)"
+  #scrollcontainer
 >
   @if (loading() && songs().length === 0) {
     <div class="song-grid">

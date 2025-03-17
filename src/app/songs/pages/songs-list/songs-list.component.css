@@ -6,7 +6,8 @@
 
 .songs-container {
   padding: 20px;
-  min-height: 100vh;
+  height: calc(100dvh - 100px); /* Altura fija calculada */
+  overflow-y: auto;
 }
 
 .song-grid {
@@ -131,4 +132,3 @@ mat-card-title {
     right: 16px;
   }
 }
-
