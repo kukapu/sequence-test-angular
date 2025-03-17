@@ -1,43 +1,20 @@
 <div class="songs-container"
-  infiniteScroll
-  [infiniteScrollDistance]="2"
-  [infiniteScrollThrottle]="50"
-  (scroll)="onScroll($event)"
+  appInfiniteScroll
+  [scrollThreshold]="150"
+  [scrollDebounceTime]="50"
+  (scrolledToBottom)="onScrolledToBottom()"
   #scrollcontainer
 >
   @if (loading() && songs().length === 0) {
     <div class="song-grid">
       @for (item of [1,2,3,4,5,6]; track item) {
-        <div class="skeleton-card">
-          <div class="skeleton-header">
-            <div class="skeleton-title"></div>
-            <div class="skeleton-subtitle"></div>
-          </div>
-          <div class="skeleton-content">
-            <div class="skeleton-chips">
-              <div class="skeleton-chip"></div>
-              <div class="skeleton-chip"></div>
-            </div>
-          </div>
-        </div>
+        <app-skeleton-card></app-skeleton-card>
       }
     </div>
   } @else if (songs().length > 0) {
     <div class="song-grid">
       @for (song of songs(); track $index) {
-        <mat-card class="song-card" (click)="toEdit(song)">
-          <mat-card-header>
-            <mat-card-title>{{ song.title }}</mat-card-title>
-            <mat-card-subtitle>{{ song.artist.name }}</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <div class="genre-chips">
-              @for (genre of song.genre; track genre) {
-                <mat-chip selected>{{ genre }}</mat-chip>
-              }
-            </div>
-          </mat-card-content>
-        </mat-card>
+        <app-song-card [song]="song" (songSelected)="toEdit(song)"></app-song-card>
       }
     </div>
     @if (loading()) {

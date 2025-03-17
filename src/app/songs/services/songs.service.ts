@@ -1,6 +1,7 @@
 import { Artist } from '../../artists/models/artist.model';
 import { Genre, Song } from './../models/song.model';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
+import { ApiService } from '../../shared/services/api.service';
 
 interface SongDB {
   id: number,
@@ -27,26 +28,22 @@ interface Company {
   providedIn: 'root'
 })
 export class SongsService {
-  private readonly API_URL = 'http://localhost:3000/songs';
-  private readonly API_URL_ARTISTS = 'http://localhost:3000/artists';
-  private readonly API_URL_COMPANIES = 'http://localhost:3000/companies';
+  private readonly SONGS_ENDPOINT = 'songs';
+  private readonly ARTISTS_ENDPOINT = 'artists';
+  private readonly COMPANIES_ENDPOINT = 'companies';
+  private apiService = inject(ApiService);
 
-  constructor() { }
-
-  async getAllSongs() {
-    return this.getSongs(1, 10000)
+  async getAllSongs(): Promise<Song[]> {
+    return this.getSongs(1, 10000);
   }
 
   async getSongs(page = 1, pageSize = 20): Promise<Song[]> {
     try {
       const start = (page - 1) * pageSize;
-      const response = await fetch(`${this.API_URL}?_start=${start}&_limit=${pageSize}`);
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const songsDB = await response.json() as SongDB[];
+      const songsDB = await this.apiService.get<SongDB[]>(this.SONGS_ENDPOINT, {
+        _start: start,
+        _limit: pageSize
+      });
 
       const songs = await Promise.all(songsDB.map(async song => {
         const artist = await this._getArtistById(song.artist);
@@ -57,7 +54,6 @@ export class SongsService {
       }));
 
       return songs;
-
     } catch (error) {
       console.error('Error fetching songs:', error);
       throw error;
@@ -66,14 +62,8 @@ export class SongsService {
 
   async getSongById(id: number): Promise<Song> {
     try {
-      const response = await fetch(`${this.API_URL}/${id}`);
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const song = await response.json() as Song;
-      const artist = await this._getArtistById(song.artist as any);
+      const song = await this.apiService.get<SongDB>(`${this.SONGS_ENDPOINT}/${id}`);
+      const artist = await this._getArtistById(song.artist);
       const companies = await this._getCompaniesForSong(id);
 
       return {
@@ -82,108 +72,58 @@ export class SongsService {
         country: companies[0]?.country,
         companies: companies?.map(c => c.name)
       };
-
     } catch (error) {
       console.error(`Error fetching song with id ${id}:`, error);
       throw error;
     }
   }
 
-  private async _getArtistById(artistId: number){
+  private async _getArtistById(artistId: number): Promise<Artist> {
     try {
-      const response = await fetch(`${this.API_URL_ARTISTS}/${artistId}`);
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      return response.json()
-
+      return this.apiService.get<Artist>(`${this.ARTISTS_ENDPOINT}/${artistId}`);
     } catch (error) {
-      console.error(`Error fetching song with id ${artistId}:`, error);
+      console.error(`Error fetching artist with id ${artistId}:`, error);
       throw error;
     }
   }
 
   private async _getCompaniesForSong(songId: number): Promise<Company[]> {
     try {
-      const response = await fetch(`${this.API_URL_COMPANIES}`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const companies = await response.json() as Company[];
+      const companies = await this.apiService.get<Company[]>(this.COMPANIES_ENDPOINT);
       return companies.filter(company => company.songs.includes(Number(songId)));
-
     } catch (error) {
       console.error(`Error fetching companies for song ${songId}:`, error);
       return [];
     }
   }
 
-  async createSong(song: Song){
+  async createSong(song: Song): Promise<Song> {
     try {
-      const songEntity = await this._parseModelToEntity(song)
-      console.log(songEntity)
-
-      const response = await fetch(`${this.API_URL}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(songEntity)
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      return response.json();
+      const songEntity = await this._parseModelToEntity(song);
+      return this.apiService.post<SongDB, Song>(this.SONGS_ENDPOINT, songEntity);
     } catch (error) {
-      console.error(`Error creating song`, error);
+      console.error(`Error creating song:`, error);
       throw error;
     }
   }
 
-  async updateSong(song: Song){
+  async updateSong(song: Song): Promise<Song> {
     if (!song.id) {
       throw new Error('Song id is required');
     }
 
-    const songEntity = await this._parseModelToEntity(song);
-    console.log('songEntity', songEntity);
-
     try {
-      const response = await fetch(`${this.API_URL}/${song.id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(songEntity)
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      return response.json();
+      const songEntity = await this._parseModelToEntity(song);
+      return this.apiService.put<SongDB, Song>(`${this.SONGS_ENDPOINT}/${song.id}`, songEntity);
     } catch (error) {
       console.error(`Error updating song with id ${song.id}:`, error);
       throw error;
     }
   }
 
-  async deleteSong(id: number) {
+  async deleteSong(id: number): Promise<boolean> {
     try {
-      const response = await fetch(`${this.API_URL}/${id}`, {
-        method: 'DELETE'
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      return true;
+      return this.apiService.delete<boolean>(`${this.SONGS_ENDPOINT}/${id}`);
     } catch (error) {
       console.error(`Error deleting song with id ${id}:`, error);
       throw error;
@@ -208,11 +148,7 @@ export class SongsService {
 
   private async _getArtistIdByName(name: string): Promise<number> {
     try {
-      const response = await fetch(`${this.API_URL_ARTISTS}`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const artists = await response.json() as Artist[];
+      const artists = await this.apiService.get<Artist[]>(this.ARTISTS_ENDPOINT);
       const artist = artists.find(a => a.name === name);
       if (!artist) {
         throw new Error(`Artist with name ${name} not found`);

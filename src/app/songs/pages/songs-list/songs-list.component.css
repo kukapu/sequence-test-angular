@@ -5,15 +5,17 @@
 }
 
 .songs-container {
-  padding: 20px;
-  height: calc(100dvh - 100px); /* Altura fija calculada */
+  height: 80vh;
   overflow-y: auto;
+  padding: 16px;
+  position: relative;
 }
 
 .song-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  padding: 16px 0;
 }
 
 .song-card {
@@ -99,7 +101,7 @@ mat-card-title {
 .loading-more {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 20px 0;
 }
 
 .empty-state {
@@ -107,24 +109,26 @@ mat-card-title {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px;
-  color: rgba(0, 0, 0, 0.54);
+  height: 100%;
+  color: #888;
 }
 
 .empty-state mat-icon {
-  font-size: 48px;
-  width: 48px;
-  height: 48px;
+  font-size: 64px;
+  width: 64px;
+  height: 64px;
   margin-bottom: 16px;
 }
 
+.empty-state p {
+  font-size: 18px;
+}
+
 .fab-button {
-  background-color: rgb(208, 208, 208);
-  border-radius: 100px;
   position: fixed;
-  bottom: 2rem;
-  right: calc((100% - min(1320px, 90vw)) / 2);
-  z-index: 1000;
+  bottom: 32px;
+  right: 32px;
+  z-index: 100;
 }
 
 @media (max-width: 600px) {
